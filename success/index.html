@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUFF | Success</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <div>
+          <a href="../index.html" class="nav-logo logo">Stuff..</a>
+          <span>Welcome!</span>
+        </div>
+        <div class="nav-actions">
+          <!-- Desktop navigation -->
+          <div class="nav-desktop-links">
+            <a href="../account/login.html">Log in</a>
+            <a href="../account/register.html">Register</a>
+            <a href="../cart/index.html" aria-label="Shopping cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Mobile navigation -->
+          <button
+            class="nav-burger"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="nav-mobile-menu">
+          <a href="../account/login.html">Log in</a>
+          <a href="../account/register.html">Register</a>
+          <a href="../cart/index.html">Shopping cart</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="success-page">
+      <video
+        class="success-video"
+        src="../assets/videos/hero-video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+        width="100%"
+      ></video>
+
+      <section class="success-message">
+        <h1>Thank you for your purchase</h1>
+        <p>
+          Your transaction has been completed successfully. We have emailed you
+          details of your order.
+        </p>
+      </section>
+
+      <section class="order-summary-section">
+        <div class="order-summary-card">
+          <h2>Order summary</h2>
+
+          <div class="order-carousel">
+            <article class="order-item">
+              <div class="order-item-image">
+                <img src="" alt="" />
+              </div>
+
+              <div class="order-item-info">
+                <div class="order-item-heading">
+                  <h3></h3>
+
+                  <div class="order-carousel-controls">
+                    <button
+                      type="button"
+                      class="order-previous"
+                      aria-label="Previous product"
+                    >
+                      <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                    </button>
+
+                    <span class="order-indicator" aria-live="polite">1/1</span>
+
+                    <button
+                      type="button"
+                      class="order-next"
+                      aria-label="Next product"
+                    >
+                      <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <p class="order-item-quantity">x1</p>
+                <p class="order-item-price"></p>
+              </div>
+            </article>
+          </div>
+          <div class="order-total">
+            <p>Total:</p>
+            <p></p>
+          </div>
+        </div>
+        <a href="../index.html" class="back-home-btn">Back to home</a>
+      </section>
+    </main>
+  </body>
+</html>
