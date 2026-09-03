@@ -22,7 +22,7 @@
 }
 
 html {
-    text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {
@@ -38,125 +38,175 @@ h4 {
   font-family: var(--font-heading);
 }
 
-button, 
+button,
 input,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
 img,
 picture,
 video {
-    max-width: 100%;
-    display: block;
-    height: auto;
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 .logo {
   font-family: var(--font-logo);
 }
 
-.logo-highlight{
-    color: var(--color-purple);
+.logo-highlight {
+  color: var(--color-purple);
 }
 
 /* HEADER / NAVIGATION */
 
 header {
-    width: 100%;
+  width: 100%;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: relative;
+  border-bottom: 1px solid black;
+  margin: 0 1rem;
 }
 
 nav > div:first-child {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
 }
 
 .nav-logo {
-    text-decoration: none;
-    color: var(--color-black);
+  text-decoration: none;
+  color: var(--color-black);
 }
 
-nav span{
-    font-size: 0.9rem;
+nav span {
+  font-size: 0.9rem;
 }
 
-.nav-actions{
-    display: flex;
-    align-items: center;
+.nav-actions {
+  display: flex;
+  align-items: center;
 }
 
 .nav-desktop-links {
-    display: none;
+  display: none;
 }
 
 .nav-burger {
-    border: 0;
-    background: none;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
-.nav-mobile-menu{
-    display: none;
+.nav-mobile-menu {
+  display: none;
+  z-index: 20;
 }
 
 .nav-mobile-menu a {
-    text-decoration: none;
-    color: var(--color-black);
+  text-decoration: none;
+  color: var(--color-black);
 }
 
 .nav-mobile-menu.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    padding: 1rem;
-    background-color: var(--color-light-purple);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  padding: 1rem;
+  background-color: var(--color-white);
+  width: 100%;
 }
 
+/* FOOTER */
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-image {
+  position: relative;
+  padding: 1rem;
+}
+
+.footer-image img {
+  border-radius: 1.5rem;
+}
+
+.footer-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--color-white);
+}
+
+.footer-terms {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.footer-copyright {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  background-color: var(--color-white);
+  padding: 0.5rem;
+  border-top-left-radius: 1.5rem;
+  font-size: 0.7rem;
+}
 /* BREAKPOINTS*/
 
-@media (min-width: 768px){
-    header {
-        position: absolute;
-        width: 100%;
-        z-index: 10;
-        top: 0;
-        left: 0;
-    }
+@media (min-width: 768px) {
+  header {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
 
-    nav > div:first-child {
-        background-color: var(--color-white);
-        padding: 1rem 2rem 1rem 1rem;
-        border-bottom-right-radius: 1.5rem;
-    }
+  nav {
+    border-bottom: none;
+  }
 
-    .nav-desktop-links {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--color-white);
-        padding:1rem 1rem 0 0;
-    }
+  nav > div:first-child {
+    background-color: var(--color-white);
+    padding: 1rem 2rem 1rem 1rem;
+    border-bottom-right-radius: 1.5rem;
+  }
 
-    .nav-desktop-links a {
-        text-decoration: none;
-        color: var(--color-white);
-    }
+  .nav-desktop-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    padding: 1rem 1rem 0 0;
+  }
 
-    .nav-burger {
-        display: none;
-    }
-    .nav-mobile-menu {
-        display: none;
-    }
+  .nav-desktop-links a {
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .nav-burger {
+    display: none;
+  }
+  .nav-mobile-menu {
+    display: none;
+  }
 }

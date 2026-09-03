@@ -25,7 +25,9 @@
     <header>
       <nav aria-label="Main navigation">
         <div>
-          <a href="index.html" class="nav-logo logo">Stuff<span class="logo-highlight">..</span></a>
+          <a href="index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
           <span>Welcome!</span>
         </div>
         <div class="nav-actions">
@@ -75,7 +77,7 @@
 
         <div class="hero-content">
           <div>
-            <h1 class="logo">Stuff..</h1>
+            <h1 class="logo">Stuff<span class="logo-highlight">..</span></h1>
             <h2>Store</h2>
             <p>Everyday things, better</p>
           </div>
@@ -86,7 +88,7 @@
               type="button"
               aria-label="Previous product"
             >
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              <i class="fa-solid fa-circle-chevron-left" aria-hidden="true"></i>
             </button>
 
             <div class="carousel-product">
@@ -98,7 +100,10 @@
               type="button"
               aria-label="Next product"
             >
-              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              <i
+                class="fa-solid fa-circle-chevron-right"
+                aria-hidden="true"
+              ></i>
             </button>
           </div>
         </div>
@@ -145,20 +150,24 @@
       </section>
     </main>
 
-    <footer>
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="assets/images/decorative-footer-desktop.png"
-        />
-        <img src="assets/images/decorative-footer-mobile.png" alt="" />
-      </picture>
-      <div>
-        <h2 class="logo">Stuff..</h2>
-        <p>Everyday things, better</p>
+    <footer class="site-footer">
+      <div class="footer-image">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="assets/images/decorative-footer-desktop.png"
+          />
+          <img src="assets/images/decorative-footer-mobile.png" alt="" />
+        </picture>
+
+        <div class="footer-content">
+          <h2 class="logo">Stuff<span class="logo-highlight">..</span></h2>
+          <p>Everyday things, better</p>
+          <a href="" class="footer-terms">Terms & conditions</a>
+        </div>
+
+        <p class="footer-copyright">&reg; 2024 STUFF. All rights reserved</p>
       </div>
-      <a href="">Terms & conditions</a>
-      <p>&reg; 2024 STUFF. All rights reserved</p>
     </footer>
     <script src="./src/js/script.js"></script>
   </body>

@@ -1,11 +1,52 @@
 /* HERO */
 
 .hero {
-    padding: 0.8rem;
+  position: relative;
+  padding: 1rem;
 }
 
 .hero-video {
-    border-radius: 1.5rem;  
+  border-radius: 1.5rem;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  color: var(--color-white);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  gap: 0.5rem;
+}
+
+.hero-content h1 {
+    font-size: 1.5rem;
+}
+
+.hero-content h2 {
+    font-size: 1rem;
+}
+
+.hero-content p {
+    font-size: 0.8rem;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-button {
+    color: var(--color-white);
+    appearance: none;
+    background: none;
+    border:0;
+    cursor: pointer;
+}
+
+.carousel-button i {
+    font-size: 1.5rem;
 }
 
 /* RESPONSIVE */
@@ -21,6 +62,7 @@
     width: 100%;
     height: calc(100vh - 2rem);
     object-fit: cover;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
+    padding: 1rem;
   }
 }
