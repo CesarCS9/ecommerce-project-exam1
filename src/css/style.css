@@ -1,17 +1,162 @@
+/* RESET / GLOBAL */
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /*Fonts*/
+  --font-logo: "Boldonse", Arial, Helvetica, sans-serif;
+  --font-heading: "Ubuntu", Arial, Helvetica, sans-serif;
+  --font-body: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+
+  /*Colors*/
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-purple: #7e3fd6;
+  --color-light-purple: #d2bcf9;
+  --color-card: #f7f4fd;
+  --color-orange: #dd5500;
+}
+
+html {
+    text-size-adjust: none;
 }
 
 body {
-    font-family: "Bricolage Grotesque", sans-serif;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  line-height: 1.5;
 }
 
 h1,
 h2,
-h3 {
-    font-family: "Ubuntu", sans-serif;
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+button, 
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+picture,
+video {
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 .logo {
-    font-family: "Boldonse", sans-serif;
+  font-family: var(--font-logo);
+}
+
+.logo-highlight{
+    color: var(--color-purple);
+}
+
+/* HEADER / NAVIGATION */
+
+header {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    position: relative;
+}
+
+nav > div:first-child {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+nav span{
+    font-size: 0.9rem;
+}
+
+.nav-actions{
+    display: flex;
+    align-items: center;
+}
+
+.nav-desktop-links {
+    display: none;
+}
+
+.nav-burger {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-mobile-menu{
+    display: none;
+}
+
+.nav-mobile-menu a {
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+.nav-mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    padding: 1rem;
+    background-color: var(--color-light-purple);
+}
+
+/* BREAKPOINTS*/
+
+@media (min-width: 768px){
+    header {
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+        top: 0;
+        left: 0;
+    }
+
+    nav > div:first-child {
+        background-color: var(--color-white);
+        padding: 1rem 2rem 1rem 1rem;
+        border-bottom-right-radius: 1.5rem;
+    }
+
+    .nav-desktop-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-white);
+        padding:1rem 1rem 0 0;
+    }
+
+    .nav-desktop-links a {
+        text-decoration: none;
+        color: var(--color-white);
+    }
+
+    .nav-burger {
+        display: none;
+    }
+    .nav-mobile-menu {
+        display: none;
+    }
 }

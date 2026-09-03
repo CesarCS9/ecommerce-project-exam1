@@ -1,0 +1,26 @@
+/* HERO */
+
+.hero {
+    padding: 0.8rem;
+}
+
+.hero-video {
+    border-radius: 1.5rem;  
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: calc(100vh - 2rem);
+    object-fit: cover;
+    border-radius: 1.5rem;
+  }
+}
