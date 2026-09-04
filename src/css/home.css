@@ -35,6 +35,7 @@
 .carousel {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .carousel-button {
@@ -48,6 +49,112 @@
 .carousel-button i {
     font-size: 1.5rem;
 }
+
+.carousel-product {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-title {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  position: absolute;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.carousel-buy-btn {
+  position: absolute;
+  text-decoration: none;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hot picks */
+
+.hot-picks{
+  padding: 1rem;
+}
+
+.hot-picks h2 {
+  font-size: 1.3rem;
+}
+
+.hot-picks p {
+  padding: 0 0 0.5rem 0;
+  font-size: 1rem;
+  border-bottom: solid 1px;
+}
+
+/* Features */
+
+.features{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.feature-icon {
+  margin-left: auto;
+  color: var(--color-light-purple);
+  background-color: var(--color-white);
+  padding: 1rem;
+  border-bottom-left-radius: 1rem;
+  font-size: 1.2rem;
+}
+
+.feature h3, p {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.features-cta {
+  text-decoration: none;
+  color: var(--color-black);
+  text-align: end;
+}
+
 
 /* RESPONSIVE */
 

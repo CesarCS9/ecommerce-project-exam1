@@ -20,6 +20,9 @@
     />
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/home.css" />
+
+    <script src="./src/js/script.js" defer></script>
+    <script src="./src/js/home.js" defer></script>
   </head>
   <body>
     <header>
@@ -92,7 +95,11 @@
             </button>
 
             <div class="carousel-product">
-              <!--Product Info-->
+              <img class="carousel-image" src="" alt="" />
+
+              <h3 class="carousel-title"></h3>
+
+              <a class="carousel-buy-btn" href="">Buy</a>
             </div>
 
             <button
@@ -123,19 +130,25 @@
 
         <div class="features-grid">
           <article class="feature">
-            <i class="fa-solid fa-medal" aria-hidden="true"></i>
+            <div class="feature-icon">
+              <i class="fa-solid fa-medal" aria-hidden="true"></i>
+            </div>
             <h3>Premium quality products</h3>
             <p>We handpick every product to ensure top-notch quality.</p>
           </article>
 
           <article class="feature">
-            <i class="fa-solid fa-truck" aria-hidden="true"></i>
+            <div class="feature-icon">
+              <i class="fa-solid fa-truck" aria-hidden="true"></i>
+            </div>
             <h3>Fast & secure delivery</h3>
             <p>Get your items delivered quickly with full tracking.</p>
           </article>
 
           <article class="feature">
-            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            <div class="feature-icon">
+              <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            </div>
             <h3>Easy returns & refunds</h3>
             <p>
               Changed your mind? No worries. Enjoy a smooth & simple return.
@@ -169,6 +182,5 @@
         <p class="footer-copyright">&reg; 2024 STUFF. All rights reserved</p>
       </div>
     </footer>
-    <script src="./src/js/script.js"></script>
   </body>
 </html>
