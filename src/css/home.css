@@ -2,14 +2,20 @@
 
 .hero {
   position: relative;
+  height: calc(100vh - 4rem);
   padding: 1rem;
 }
 
 .hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 1.5rem;
 }
+
 .hero-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: absolute;
   color: var(--color-white);
@@ -20,42 +26,53 @@
   gap: 0.5rem;
 }
 
-.hero-content h1 {
-    font-size: 1.5rem;
+.hero-content-title {
+  text-align: center;
+}
+
+
+.hero-content-title h1 {
+  font-size: 2rem;
 }
 
 .hero-content h2 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .hero-content p {
-    font-size: 0.8rem;
+  font-size: 1rem;
+  padding: 1.5rem 0;
 }
 
 .carousel {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .carousel-button {
-    color: var(--color-white);
-    appearance: none;
-    background: none;
-    border:0;
-    cursor: pointer;
+  color: var(--color-white);
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .carousel-button i {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .carousel-product {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 60vw;
+  aspect-ratio: 1 /1 ;
   overflow: hidden;
   border-radius: 1rem;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-product.fade {
+  opacity: 0;
 }
 
 .carousel-image {
@@ -65,8 +82,8 @@
 }
 
 .carousel-title {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
   padding: 1rem;
   position: absolute;
   color: var(--color-black);
@@ -88,11 +105,12 @@
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 /* Hot picks */
 
-.hot-picks{
+.hot-picks {
   padding: 1rem;
 }
 
@@ -108,7 +126,7 @@
 
 /* Features */
 
-.features{
+.features {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -144,7 +162,8 @@
   font-size: 1.2rem;
 }
 
-.feature h3, p {
+.feature h3,
+p {
   padding: 1rem;
   font-size: 1rem;
 }
@@ -155,12 +174,10 @@
   text-align: end;
 }
 
-
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
   .hero {
-    position: relative;
     min-height: 100vh;
     padding: 1rem;
   }
@@ -171,5 +188,48 @@
     object-fit: cover;
     border-radius: 2rem;
     padding: 1rem;
+  }
+
+  .hero-content {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .hero-content-title {
+    text-align: left;
+  }
+
+  .hero-content-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .carousel {
+    gap: 2.5rem;
+  }
+
+  .carousel-product {
+    width: 30vw;
+    max-width: 25rem;
+  }
+
+  .carousel-title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .carousel-button i {
+    font-size: 2rem;
+  }
+
+  .carousel-buy-btn {
+    font-size: 0.9rem;
   }
 }

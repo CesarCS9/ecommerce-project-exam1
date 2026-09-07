@@ -5,6 +5,9 @@
 const carouselImage = document.querySelector(".carousel-image");
 const carouselTitle = document.querySelector(".carousel-title");
 const carouselBuyBtn = document.querySelector(".carousel-buy-btn");
+const previousButton = document.querySelector(".carousel-button-previous");
+const nextButton = document.querySelector(".carousel-button-next");
+const carouselProduct = document.querySelector(".carousel-product");
 
 /* API */
 
@@ -25,6 +28,9 @@ async function fetchProducts() {
 
 /* CAROUSEL */
 
+let carouselProducts = [];
+let currentIndex = 0;
+
 function renderCarouselProduct(product) {
   carouselImage.src = product.image.url;
   carouselImage.alt = product.title;
@@ -33,14 +39,53 @@ function renderCarouselProduct(product) {
   carouselBuyBtn.href = `product/index.html?id=${product.id}`;
 }
 
+function showNextProduct() {
+  currentIndex++;
+  
+  if (currentIndex >= carouselProducts.length) {
+    currentIndex = 0;
+  }
+
+  changeCarouselProduct(carouselProducts[currentIndex]);
+}
+
+function showPreviousProduct() {
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = carouselProducts.length - 1;
+  }
+
+  changeCarouselProduct(carouselProducts[currentIndex]);
+}
+
+previousButton.addEventListener("click", showPreviousProduct);
+
+nextButton.addEventListener("click", showNextProduct);
+
+function changeCarouselProduct(product) {
+    carouselProduct.classList.add("fade");
+
+    setTimeout(() => {
+        renderCarouselProduct(product);
+        carouselProduct.classList.remove("fade");
+    }, 300);
+}
+
+function startCarousel() {
+    setInterval(showNextProduct, 7000);
+}
+
 /* INITIALISE */
 
 async function init() {
     const products = await fetchProducts();
 
-    const carouselProducts = [products[16], products[1], products[10]];
+    carouselProducts = [products[16], products[1], products[10]];
 
-    renderCarouselProduct(carouselProducts[2]);   
+    renderCarouselProduct(carouselProducts[currentIndex]);   
+
+    startCarousel();
 }
 
 init();
