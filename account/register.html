@@ -19,6 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/register.css">
 
     <script src="../src/js/script.js" defer></script>
   </head>
@@ -26,7 +27,9 @@
     <header>
       <nav aria-label="Main navigation">
         <div>
-          <a href="../index.html" class="nav-logo logo">Stuff..</a>
+          <a href="../index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
           <span>Welcome!</span>
         </div>
         <div class="nav-actions">
@@ -63,9 +66,10 @@
     <main>
       <section class="register">
         <h1>Register</h1>
+
         <form class="register-form" action="">
-          <div class="register-name">
-            <div>
+          <div class="name-fields">
+            <div class="form-field">
               <label for="name">First name</label>
               <input
                 type="text"
@@ -75,7 +79,8 @@
                 required
               />
             </div>
-            <div>
+
+            <div class="form-field">
               <label for="lastname">Last name</label>
               <input
                 type="text"
@@ -86,6 +91,7 @@
               />
             </div>
           </div>
+
           <div class="form-field">
             <label for="email">Email address</label>
             <input
@@ -96,6 +102,7 @@
               required
             />
           </div>
+
           <div class="form-field">
             <label for="password">Password</label>
             <input
@@ -106,10 +113,14 @@
               required
             />
           </div>
+
           <div class="terms">
             <input type="checkbox" id="agreeterms" name="agreeterms" required />
-            <label for="agreeterms">Agree with our terms and conditions</label>
+            <label for="agreeterms">
+              Agree with our terms & conditions
+            </label>
           </div>
+
           <button type="submit" class="register-btn">Create my account</button>
         </form>
       </section>

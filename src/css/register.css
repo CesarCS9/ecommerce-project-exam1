@@ -1,0 +1,65 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.register h1{
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-card);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    gap: 1.8rem;
+    font-size: 1rem;
+}
+
+.register-form input {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.name-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.terms {
+    display: flex;
+    text-align: center;
+    font-size: 0.8rem;
+    gap: 0.5rem;
+}
+
+.register-btn {
+    background-color: var(--color-purple);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 1.5rem;
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  header {
+    position: relative;
+  }
+
+  .name-fields{
+    flex-direction: row;
+  }
+}
