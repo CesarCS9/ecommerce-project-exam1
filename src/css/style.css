@@ -71,10 +71,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem 0 0.5rem 0;
   position: relative;
   border-bottom: 1px solid black;
-  margin: 0 1rem;
+  margin: 0 2rem;
 }
 
 nav > div:first-child {
@@ -180,10 +180,6 @@ nav span {
     left: 0;
   }
 
-  nav {
-    border-bottom: none;
-  }
-
   nav > div:first-child {
     background-color: var(--color-white);
     padding: 1rem 2rem 1rem 1rem;
@@ -194,13 +190,17 @@ nav span {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-white);
+    color: var(--color-black);
     padding: 1rem 1rem 0 0;
   }
 
   .nav-desktop-links a {
     text-decoration: none;
-    color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .nav-desktop-links a i {
+    color: var(--color-purple);
   }
 
   .nav-burger {

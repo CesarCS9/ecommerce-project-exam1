@@ -19,6 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/login.css" />
   </head>
   <body>
     <main class="login-page">
@@ -33,48 +34,50 @@
         width="100%"
       ></video>
 
+      <span class="login-welcome">Welcome back :)</span>
+
       <div class="login-content">
-        <header>
-          <span>Welcome back :)</span>
+        <div class="login-brand">
+          <a href="../index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
+          <p>Everyday things, better</p>
+        </div>
 
-          <div>
-            <a href="../index.html" class="nav-logo logo">Stuff..</a>
-            <p>Everyday things, better</p>
-          </div>
-        </header>
+        <div class="login-form-container">
+          <form class="login-form" action="">
+            <h1>User Login</h1>
 
-        <form action="">
-          <h1>User Login</h1>
+            <div class="login-field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                required
+              />
+            </div>
 
-          <div>
-            <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="email"
-              required
-            />
-          </div>
+            <div class="login-field">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
 
-          <div>
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              autocomplete="current-password"
-              required
-            />
-          </div>
+            <button type="submit" class="login-button">Log in</button>
+          </form>
 
-          <button type="submit" class="login">Log in</button>
-        </form>
-
-        <a href="register.html" class="create-account">
-          Create your account
-          <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-        </a>
+          <a href="register.html" class="create-account">
+            Create your account
+            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
     </main>
   </body>

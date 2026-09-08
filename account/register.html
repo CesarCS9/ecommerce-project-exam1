@@ -19,6 +19,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+
+    <script src="../src/js/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -31,6 +33,7 @@
           <!-- Desktop navigation -->
           <div class="nav-desktop-links">
             <a href="../account/login.html">Log in</a>
+            <span>/</span>
             <a href="../account/register.html">Register</a>
             <a href="../cart/index.html" aria-label="Shopping cart">
               <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
@@ -111,20 +114,24 @@
         </form>
       </section>
     </main>
-    <footer>
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="../assets/images/decorative-footer-desktop.png"
-        />
-        <img src="../assets/images/decorative-footer-mobile.png" alt="" />
-      </picture>
-      <div>
-        <h2 class="logo">Stuff..</h2>
-        <p>Everyday things, better</p>
+    <footer class="site-footer">
+      <div class="footer-image">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="../assets/images/decorative-footer-desktop.png"
+          />
+          <img src="../assets/images/decorative-footer-mobile.png" alt="" />
+        </picture>
+
+        <div class="footer-content">
+          <h2 class="logo">Stuff<span class="logo-highlight">..</span></h2>
+          <p>Everyday things, better</p>
+          <a href="" class="footer-terms">Terms & conditions</a>
+        </div>
+
+        <p class="footer-copyright">&reg; 2024 STUFF. All rights reserved</p>
       </div>
-      <a href="">Terms & conditions</a>
-      <p>&reg; 2024 STUFF. All rights reserved</p>
     </footer>
   </body>
 </html>

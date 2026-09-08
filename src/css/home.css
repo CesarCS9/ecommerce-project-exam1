@@ -30,7 +30,6 @@
   text-align: center;
 }
 
-
 .hero-content-title h1 {
   font-size: 2rem;
 }
@@ -65,7 +64,7 @@
 .carousel-product {
   position: relative;
   width: 60vw;
-  aspect-ratio: 1 /1 ;
+  aspect-ratio: 1 /1;
   overflow: hidden;
   border-radius: 1rem;
   transition: opacity 0.5s ease;
@@ -111,17 +110,79 @@
 /* Hot picks */
 
 .hot-picks {
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .hot-picks h2 {
   font-size: 1.3rem;
 }
 
-.hot-picks p {
-  padding: 0 0 0.5rem 0;
+.hot-picks-description {
+  padding: 0.5rem 0 1rem 0;
   font-size: 1rem;
   border-bottom: solid 1px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding-bottom: 1.2rem;
+}
+
+.product-image-container {
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1.5/2;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.product-price {
+  position: absolute;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  top: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.product-buy-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.product-rating {
+  color: var(--color-orange);
 }
 
 /* Features */
@@ -177,6 +238,17 @@ p {
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
+  nav {
+    border-bottom: none;
+  }
+
+  .nav-desktop-links,
+  .nav-desktop-links a,
+  .nav-desktop-links a i {
+    color: var(--color-white);
+  }
+
+
   .hero {
     min-height: 100vh;
     padding: 1rem;
@@ -231,5 +303,12 @@ p {
 
   .carousel-buy-btn {
     font-size: 0.9rem;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
   }
 }
