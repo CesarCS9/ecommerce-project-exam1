@@ -312,3 +312,16 @@ p {
     padding: 2rem 0;
   }
 }
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  
+  .features-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+}
