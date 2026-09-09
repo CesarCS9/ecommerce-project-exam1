@@ -10,6 +10,11 @@
     border-radius: 1.5rem;
 }
 
+.product-rating {
+    color: var(--color-orange);
+    font-size: 1rem;
+}
+
 .product-info {
     display: flex;
     flex-direction: column;
@@ -34,13 +39,35 @@
     font-size: 1.5rem;
 }
 
+.product-tags i {
+    color: var(--color-light-purple);
+    font-size: 1rem;
+}
+
 .product-purchase {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 1rem;
+    padding: 1rem;
 }
 
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.quantity {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: solid 0.5px black;
+  border-radius: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  background-color: var(--color-white);
+}
 
 .add-to-cart {
     background: none;
@@ -52,6 +79,86 @@
     width: 100%;
 }
 
+.reviews{
+    padding: 0.5rem;
+}
+
+.reviews h2{
+    padding: 1rem;
+}
+
+
+.reviews-list{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    
+}
+
+.review-item {
+    position: relative;
+    min-height: 180px;
+    background-color: var(--color-card);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+
+}
+
+.review-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--color-light-purple);
+    background-color: var(--color-white);
+    padding: 1rem 2.5rem 1rem 1rem;
+    border-top-right-radius: 1.5rem;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 3rem;
+}
+
+.rating-review {
+    color: var(--color-orange);
+}
+
+
+
 @media (min-width: 768px) {
+    header {
+    position: relative;
+  }
+    
+ }
+
+ @media (min-width: 1024px) {
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 1fr auto;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .product-image {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .product-info {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .product-purchase {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: end;
+    }
+
     
  }

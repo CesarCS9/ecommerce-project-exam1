@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
-    <link rel="stylesheet" href="../src/css/product.css">
+    <link rel="stylesheet" href="../src/css/product.css" />
 
     <script src="../src/js/script.js" defer></script>
     <script src="../src/js/product.js" defer></script>
@@ -28,7 +28,9 @@
     <header>
       <nav aria-label="Main navigation">
         <div>
-          <a href="../index.html" class="nav-logo logo">Stuff<span class="logo-highlight">..</span></a>
+          <a href="../index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
           <span>Welcome!</span>
         </div>
         <div class="nav-actions">
@@ -87,28 +89,22 @@
 
           <p class="product-description"></p>
 
-          <div class="product-tags"></div>
+          <div class="product-tags">
+            <i class="fa-solid fa-tag" aria-hidden="true"></i>:
+          </div>
         </div>
 
         <div class="product-purchase">
           <div class="quantity-selector">
-            <button
-              type="button"
-              class="quantity-decrease"
-              aria-label="Decrease quantity"
-            >
-              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-            </button>
-
-            <span class="quantity">1</span>
-
-            <button
-              type="button"
-              class="quantity-increase"
-              aria-label="Increase quantity"
-            >
-              <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
-            </button>
+            <label for="quantity"></label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              class="quantity"
+              value="1"
+              min="1"
+            />
           </div>
 
           <button type="button" class="add-to-cart">Add to cart</button>
@@ -117,18 +113,8 @@
 
       <section class="reviews">
         <h2>Customer reviews</h2>
-        <div class="reviews-list">
 
-          <article class="review-item">
-            <i class="fa-solid fa-comments" aria-hidden="true"></i>
-            <div>
-              <div class="rating-review"></div>
-              <p class="review"></p>
-              <p class="user-review"></p>
-            </div>
-          </article>
-
-        </div>
+        <div class="reviews-list"></div>
       </section>
     </main>
 
