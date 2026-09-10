@@ -19,14 +19,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/checkout.css" />
 
     <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/checkout.js" defer></script>
   </head>
   <body>
     <header>
       <nav aria-label="Main navigation">
         <div>
-          <a href="../index.html" class="nav-logo logo">Stuff..</a>
+          <a href="../index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
           <span>Welcome!</span>
         </div>
         <div class="nav-actions">
@@ -66,45 +70,69 @@
         <h1>Checkout</h1>
 
         <div class="checkout-grid">
-
           <div class="shipping-details">
             <form action="">
               <h2>Shipping address</h2>
               <div class="form-field">
                 <label for="fullname">Full name</label>
-                <input type="text" id="fullname" required/>
+                <input type="text" id="fullname" required />
               </div>
               <div class="form-field">
                 <label for="address">Address</label>
-                <input type="text" id="address"required/>
+                <input type="text" id="address" required />
               </div>
               <div class="form-field">
                 <label for="country">Country</label>
-                <input type="text" id="country" required/>
+                <input type="text" id="country" required />
               </div>
               <div class="form-field">
                 <label for="postcode">Post code</label>
-                <input type="text" id="postcode" required/>
+                <input type="text" id="postcode" required />
               </div>
               <div class="form-field">
                 <label for="phonenumber">Phone number</label>
-                <input type="text" id="phonenumber" required/>
+                <input type="text" id="phonenumber" required />
               </div>
             </form>
           </div>
 
           <div class="payment-options">
-            <div class="payment-option">
-              <input type="radio" id="card-payment" name="payment" aria-label="Credit or debit card"/>
-              <i class="fa-brands fa-cc-visa" aria-label="Visa"></i>
-              <i class="fa-brands fa-cc-mastercard" aria-label="Mastercard"></i>
+            <!-- CARD -->
+            <div class="payment-option-container">
+              <div class="payment-option">
+                <input type="radio" id="card-payment" name="payment" />
+
+                <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
+                <i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i>
+              </div>
+
+              <div class="payment-details">
+                <p>
+                  Total amount, including VAT
+                  <span class="payment-total"></span>
+                </p>
+
+                <a href="../success/index.html">Pay</a>
+              </div>
             </div>
-            <div class="payment-option">
-              <input type="radio" id="google-payment" name="payment" aria-label="Google Pay"/>
-              <i class="fa-brands fa-google-pay" aria-hidden="true"></i>
+
+            <!-- GOOGLE PAY -->
+            <div class="payment-option-container">
+              <div class="payment-option">
+                <input type="radio" id="google-pay" name="payment" />
+                <i class="fa-brands fa-google-pay" aria-hidden="true"></i>
+              </div>
+
+              <div class="payment-details">
+                <p>
+                  Total amount, including VAT
+                  <span class="payment-total"></span>
+                </p>
+
+                <a href="../success/index.html">Pay with Google Pay</a>
+              </div>
             </div>
           </div>
-
         </div>
       </section>
     </main>
