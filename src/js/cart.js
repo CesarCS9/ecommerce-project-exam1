@@ -4,6 +4,8 @@
 
 const cartItems = document.querySelector(".cart-items");
 
+const subtotal = document.querySelector(".subtotal");
+
 /* API */
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
@@ -134,6 +136,22 @@ function renderCart(products) {
   });
 }
 
+/* SUBTOTAL */
+
+function renderSubtotal(products) {
+    // Start the subtotal at 0.
+    let total = 0;
+
+    // Go through each product in the cart.
+    products.forEach((product) => {
+        // Calculate the price of this product based on its quantity.
+        total += product.price * product.quantity;
+    });
+
+    // Display the final subtotal.
+    subtotal.textContent = `${total.toFixed(2)} NOK`;
+}
+
 /* INIT */
 
 async function init() {
@@ -142,6 +160,9 @@ async function init() {
 
   // Render the products on the page.
   renderCart(products);
+
+  // Calculate and display the cart subtotal.
+    renderSubtotal(products);
 }
 
 init();
