@@ -11,6 +11,8 @@ const productTags = document.querySelector(".product-tags");
 
 const reviewsList = document.querySelector('.reviews-list');
 
+const addToCartButton = document.querySelector(".add-to-cart");
+
 /* API */
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
@@ -52,6 +54,12 @@ function renderProduct(product) {
 
   /* Render customer reviews */
   renderReviews(product.reviews);
+
+  // Add the current product to the cart when the button is clicked.
+  addToCartButton.addEventListener("click", () => {
+    addToCart(product);
+  });
+
 }
 
 function renderRating(rating) {
@@ -155,6 +163,31 @@ function renderReviews(reviews) {
         // Add review to the page
         reviewsList.appendChild(reviewItem);
   });
+}
+
+/* ADD TO CART */
+
+function addToCart(product){
+  // Get the current cart from localStorage.
+  // If there is no cart yet, use an empty array.
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Check if this product is already in the cart.
+  const existingProduct = cart.find((item) => item.id === product.id);
+
+  if (existingProduct) {
+    // If the product already exists, increase its quantity by 1.
+    existingProduct.quantity += 1;
+  } else {
+    // If the product is not in the cart, add it with quantity 1.
+    cart.push({
+      id: product.id,
+      quantity: 1,
+    });
+  }
+
+  // Save the updated cart back to localStorage.
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 /* INIT */

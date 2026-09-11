@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STUFF | Register</title>
+    <title>STUFF | Cart</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
@@ -19,8 +19,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/cart.css" />
 
     <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/cart.js" defer></script>
   </head>
   <body>
     <header>
@@ -64,51 +66,20 @@
       <section class="cart">
         <h1>Cart</h1>
         <div class="cart-card">
-          <div class="cart-items">
+          <div class="cart-items"></div>
 
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="" alt="" />
-              </div>
+          <button type="button" class="clear-cart" aria-label="Clear all items">
+            Clear all
+          </button>
 
-              <div class="cart-item-info">
-                <div class="cart-item-heading">
-                  <h2></h2>
-                  <button type="button" aria-label="Remove item">
-                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-                  </button>
-                </div>
-                <p></p>
-
-                <div>
-                  <button
-                    type="button"
-                    class="quantity-decrease"
-                    aria-label="Decrease quantity"
-                  >
-                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-                  </button>
-                  <span class="quantity">1</span>
-
-                  <button
-                    type="button"
-                    class="quantity-increase"
-                    aria-label="Increase quantity"
-                  >
-                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <button type="button" aria-label="Clear all items">Clear all</button>
-          <div>
+          <div class="cart-total">
             <h3>Subtotal</h3>
-            <p></p>
+            <p class="subtotal"></p>
           </div>
-          <button type="button" class="checkout-btn">Checkout</button>
+
+          <a href="../checkout/index.html" class="checkout-button">
+            Checkout
+          </a>
         </div>
       </section>
     </main>
