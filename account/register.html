@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../src/css/register.css">
 
     <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/register.js" defer></script>
   </head>
   <body>
     <header>
@@ -67,7 +68,7 @@
       <section class="register">
         <h1>Register</h1>
 
-        <form class="register-form" action="">
+        <form class="register-form" id="register-form" action="">
           <div class="name-fields">
             <div class="form-field">
               <label for="name">First name</label>
@@ -120,6 +121,8 @@
               Agree with our terms & conditions
             </label>
           </div>
+
+          <p class="register-message"></p>
 
           <button type="submit" class="register-btn">Create my account</button>
         </form>
