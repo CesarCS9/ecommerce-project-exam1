@@ -48,7 +48,7 @@ async function registerUser(name, email, password) {
     if (response.ok) {
         showRegistrationSuccess();
     } else {
-        registerMessage.textContent = data.errors[0].message;
+        registerMessage.textContent = `Error: ${data.errors[0].message}`;
     }
 }
 

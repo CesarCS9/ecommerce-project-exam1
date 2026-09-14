@@ -75,6 +75,11 @@
     border-radius: 1.2rem;
 }
 
+.register-message {
+    color: var(--color-orange);
+    font-style: italic;
+}
+
 @media (min-width: 768px) {
   header {
     position: relative;
