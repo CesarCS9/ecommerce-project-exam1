@@ -54,6 +54,27 @@
     font-size: 0.9rem;
 }
 
+.registration-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.registration-success h2 {
+    font-weight: 400;
+    color: var(--color-purple);
+}
+
+.login-link {
+    color: var(--color-white);
+    background-color: var(--color-purple);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1.2rem;
+}
+
 @media (min-width: 768px) {
   header {
     position: relative;
