@@ -126,6 +126,25 @@
     color: var(--color-orange);
 }
 
+.cart-toast {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+    position: fixed;
+    margin: 2rem;
+    right: 0;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.cart-toast.show {
+    opacity: 1;
+}
+
 
 
 @media (min-width: 768px) {
