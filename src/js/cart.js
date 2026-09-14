@@ -6,6 +6,8 @@ const cartItems = document.querySelector(".cart-items");
 
 const subtotal = document.querySelector(".subtotal");
 
+const clearCartButton = document.querySelector(".clear-cart");
+
 /* API */
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
@@ -54,6 +56,9 @@ function renderCart(products) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
 
+    // Store the product ID in the cart item.
+    cartItem.dataset.id = product.id;
+
     // Create the image container.
     const cartItemImage = document.createElement("div");
     cartItemImage.classList.add("cart-item-image");
@@ -98,6 +103,44 @@ function renderCart(products) {
     // Add the remove button to the heading.
     cartItemHeading.appendChild(removeButton);
 
+    // Listen for clicks on the remove button.
+    removeButton.addEventListener("click", () => {
+      // Get the current cart from localStorage.
+      const cart = getCart();
+
+      // Remove the product with this ID from the cart.
+      const updatedCart = cart.filter((item) => item.id !== product.id);
+
+      // Save the updated cart to localStorage.
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      // Remove the product card from the page.
+      cartItem.remove();
+
+      // Check if the cart is now empty.
+      if (updatedCart.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.classList.add("empty-cart-message");
+        emptyMessage.textContent = "Oops! your cart is empty. Please add some products to your cart to see them here.";
+        cartItems.appendChild(emptyMessage);
+
+        // Reset the subtotal.
+        subtotal.textContent = "0 NOK";
+      }
+
+      // Find the product in the products array.
+      const productIndex = products.findIndex((item) => item.id === product.id);
+
+      // Remove the product from the products array.
+      products.splice(productIndex, 1);
+
+      // Remove the product card from the page.
+      cartItem.remove();
+
+      // Update the subtotal.
+      renderSubtotal(products);
+    });
+
     // Add the heading to the product information.
     cartItemInfo.appendChild(cartItemHeading);
 
@@ -125,6 +168,36 @@ function renderCart(products) {
 
     quantitySelector.appendChild(quantityInput);
 
+    // Listen for changes to the quantity input.
+    quantityInput.addEventListener("change", () => {
+      // Get the new quantity from the input.
+      const newQuantity = Number(quantityInput.value);
+
+      // Get the current cart from localStorage.
+      const cart = getCart();
+
+      // Find the product in the cart using its ID.
+      const cartProduct = cart.find((item) => item.id === product.id);
+
+      // Update the quantity.
+      cartProduct.quantity = newQuantity;
+
+      // Save the updated cart to localStorage.
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Update the quantity in the product object.
+      product.quantity = newQuantity;
+
+      // Calculate the new total price for this product.
+      const newItemTotal = product.price * newQuantity;
+
+      // Update the price shown on the page.
+      price.textContent = `${newItemTotal.toFixed(2)} NOK`;
+
+      // Update the subtotal on the page.
+      renderSubtotal(products);
+    });
+
     // Add the quantity selector to the product information.
     cartItemInfo.appendChild(quantitySelector);
 
@@ -139,18 +212,37 @@ function renderCart(products) {
 /* SUBTOTAL */
 
 function renderSubtotal(products) {
-    // Start the subtotal at 0.
-    let total = 0;
+  // Start the subtotal at 0.
+  let total = 0;
 
-    // Go through each product in the cart.
-    products.forEach((product) => {
-        // Calculate the price of this product based on its quantity.
-        total += product.price * product.quantity;
-    });
+  // Go through each product in the cart.
+  products.forEach((product) => {
+    // Calculate the price of this product based on its quantity.
+    total += product.price * product.quantity;
+  });
 
-    // Display the final subtotal.
-    subtotal.textContent = `${total.toFixed(2)} NOK`;
+  // Display the final subtotal.
+  subtotal.textContent = `${total.toFixed(2)} NOK`;
 }
+
+// CLEAR CART
+clearCartButton.addEventListener("click", () => {
+  // Remove all products from localStorage.
+  localStorage.removeItem("cart");
+
+  // Remove all product cards from the page.
+  cartItems.innerHTML = "";
+
+  // Show the empty cart message.
+  const emptyMessage = document.createElement("p");
+  emptyMessage.classList.add("empty-cart-message");
+  emptyMessage.textContent =
+    "Oops! your cart is empty. Please add some products to your cart to see them here.";
+  cartItems.appendChild(emptyMessage);
+
+  // Reset the subtotal.
+  subtotal.textContent = "0.00 NOK";
+});
 
 /* INIT */
 
@@ -162,7 +254,7 @@ async function init() {
   renderCart(products);
 
   // Calculate and display the cart subtotal.
-    renderSubtotal(products);
+  renderSubtotal(products);
 }
 
 init();

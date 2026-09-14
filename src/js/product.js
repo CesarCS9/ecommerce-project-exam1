@@ -13,6 +13,8 @@ const reviewsList = document.querySelector('.reviews-list');
 
 const addToCartButton = document.querySelector(".add-to-cart");
 
+const quantityInput = document.querySelector(".quantity");
+
 /* API */
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";

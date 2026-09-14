@@ -78,6 +78,11 @@
     text-align: right;
 }
 
+.empty-cart-message {
+    text-align: center;
+    padding: 2rem 0;
+}
+
 .cart-total {
     display: flex;
     justify-content: space-between;
