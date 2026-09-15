@@ -1,3 +1,5 @@
+"use strict";
+
 const navBurger = document.querySelector('.nav-burger');
 const mobileMenu = document.querySelector('.nav-mobile-menu');
 

@@ -89,6 +89,12 @@
     padding-top: 1rem;
 }
 
+.login-message {
+    text-align: center;
+    white-space: nowrap;
+    color: var(--color-orange);
+}
+
 @media (min-width: 768px) {
 
   .login-content {
