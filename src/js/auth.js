@@ -45,25 +45,30 @@ if (accessToken) {
 
 /* LOGOUT */
 
-loginLink.addEventListener('click', (event) => {
-    if (accessToken){
-        event.preventDefault();
+loginLink.addEventListener("click", (event) => {
+  if (accessToken) {
+    event.preventDefault();
 
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('email');
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("email");
 
-        window.location.href = loginLink.href;
-    }
+    // Clear the cart when logging out.
+    localStorage.removeItem("cart");
+
+    window.location.href = loginLink.href;
+  }
 });
 
-mobileLoginLink.addEventListener('click', (event) => {
-    if (accessToken) {
-        event.preventDefault();
+mobileLoginLink.addEventListener("click", (event) => {
+  if (accessToken) {
+    event.preventDefault();
 
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('email');
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("email");
 
-        window.location.href = mobileLoginLink.href;
+    // Clear the cart when logging out.
+    localStorage.removeItem("cart");
 
-    }
+    window.location.href = mobileLoginLink.href;
+  }
 });

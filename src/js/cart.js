@@ -8,9 +8,15 @@ const subtotal = document.querySelector(".subtotal");
 
 const clearCartButton = document.querySelector(".clear-cart");
 
+const checkoutButton = document.getElementById("checkout-button");
+
 /* API */
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
+
+/* AUTHENTICATION */
+
+const isLoggedIn = localStorage.getItem("accessToken");
 
 /* GET CART */
 
@@ -20,6 +26,30 @@ function getCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   return cart;
+}
+
+/* EMPTY CART */
+
+function renderEmptyCart() {
+  cartItems.innerHTML = "";
+
+  const emptyMessage = document.createElement("p");
+  emptyMessage.classList.add("empty-cart-message");
+
+  if (isLoggedIn) {
+    emptyMessage.textContent =
+      "Oops! Your cart is empty. Please add some products to your cart to see them here.";
+
+    checkoutButton.textContent = "Continue shopping";
+    checkoutButton.href = "../index.html";
+  } else {
+    emptyMessage.textContent = "Please log in to add products to your cart.";
+
+    checkoutButton.textContent = "Log in";
+    checkoutButton.href = "../account/login.html";
+  }
+
+  cartItems.appendChild(emptyMessage);
 }
 
 /* FETCH CART PRODUCTS */
@@ -117,25 +147,16 @@ function renderCart(products) {
       // Remove the product card from the page.
       cartItem.remove();
 
-      // Check if the cart is now empty.
-      if (updatedCart.length === 0) {
-        const emptyMessage = document.createElement("p");
-        emptyMessage.classList.add("empty-cart-message");
-        emptyMessage.textContent = "Oops! your cart is empty. Please add some products to your cart to see them here.";
-        cartItems.appendChild(emptyMessage);
-
-        // Reset the subtotal.
-        subtotal.textContent = "0 NOK";
-      }
-
       // Find the product in the products array.
       const productIndex = products.findIndex((item) => item.id === product.id);
 
       // Remove the product from the products array.
       products.splice(productIndex, 1);
 
-      // Remove the product card from the page.
-      cartItem.remove();
+      // Show the empty cart state if needed.
+      if (updatedCart.length === 0) {
+        renderEmptyCart();
+      }
 
       // Update the subtotal.
       renderSubtotal(products);
@@ -225,20 +246,14 @@ function renderSubtotal(products) {
   subtotal.textContent = `${total.toFixed(2)} NOK`;
 }
 
-// CLEAR CART
+/* CLEAR CART */
+
 clearCartButton.addEventListener("click", () => {
   // Remove all products from localStorage.
   localStorage.removeItem("cart");
 
-  // Remove all product cards from the page.
-  cartItems.innerHTML = "";
-
-  // Show the empty cart message.
-  const emptyMessage = document.createElement("p");
-  emptyMessage.classList.add("empty-cart-message");
-  emptyMessage.textContent =
-    "Oops! your cart is empty. Please add some products to your cart to see them here.";
-  cartItems.appendChild(emptyMessage);
+  // Show the empty cart state.
+  renderEmptyCart();
 
   // Reset the subtotal.
   subtotal.textContent = "0.00 NOK";
@@ -250,8 +265,13 @@ async function init() {
   // Fetch the complete product data from the cart.
   const products = await fetchCartProducts();
 
-  // Render the products on the page.
-  renderCart(products);
+  if (products.length === 0) {
+    // Show the appropriate empty cart message.
+    renderEmptyCart();
+  } else {
+    // Render the products in the cart.
+    renderCart(products);
+  }
 
   // Calculate and display the cart subtotal.
   renderSubtotal(products);
