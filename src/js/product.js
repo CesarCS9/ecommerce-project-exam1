@@ -61,6 +61,18 @@ function renderProduct(product) {
 
   // Add the current product to the cart when the button is clicked.
   addToCartButton.addEventListener("click", () => {
+
+    // Check if the user is logged in
+    if (!localStorage.getItem('accessToken')){
+      cartToast.textContent = 'Please log in to add items to your cart';
+      cartToast.classList.add('show');
+
+      setTimeout(()=>{
+        cartToast.classList.remove('show');
+      }, 3000);
+
+      return;
+    }
     // If the button says Checkout, go to the checkout page.
     if (addToCartButton.textContent === "Checkout") {
       window.location.href = "../cart/index.html";

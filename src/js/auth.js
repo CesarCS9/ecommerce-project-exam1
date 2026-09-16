@@ -11,6 +11,8 @@ const mobileLoginLink = document.getElementById("mobile-login-link");
 const registerLink = document.getElementById("register-link");
 const mobileRegisterLink = document.getElementById("mobile-register-link");
 
+const authMobileMenu = document.querySelector(".nav-mobile-menu");
+
 /* AUTHENTICATION */
 
 const accessToken = localStorage.getItem("accessToken");
@@ -35,7 +37,7 @@ if (accessToken) {
   mobileRegisterLink.style.display = "none";
 
   // Move logout link to the bottom.
-  mobileMenu.appendChild(mobileLoginLink);
+  authMobileMenu.appendChild(mobileLoginLink);
 } else {
   //User is no logged in
   console.log("User is not logged in");
