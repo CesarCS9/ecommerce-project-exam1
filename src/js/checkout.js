@@ -85,13 +85,17 @@ googlePay.addEventListener("change", function () {
     googlePay.parentElement.parentElement.classList.add("selected");
 });
 
-checkoutForm.addEventListener("submit", (event) => {
+checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   //Check the required fields 
   if (!checkoutForm.checkValidity()) {
     return;
   }
+
+  // Save the completed order for the success page
+  const products = await fetchCartProducts();
+  localStorage.setItem("lastOrder", JSON.stringify(products));
 
   //Reset the cart
   localStorage.removeItem("cart");

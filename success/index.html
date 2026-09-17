@@ -19,9 +19,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/success.css">
 
     <script src="../src/js/script.js" defer></script>
     <script src="../src/js/auth.js" defer></script>
+    <script src="../src/js/success.js" defer></script>
   </head>
   <body>
     <header>
@@ -74,61 +76,65 @@
         width="100%"
       ></video>
 
-      <section class="success-message">
-        <h1>Thank you for your purchase</h1>
-        <p>
-          Your transaction has been completed successfully. We have emailed you
-          details of your order.
-        </p>
-      </section>
+      <div class="success-container">
+        <section class="success-message">
+          <h1>Thank you for your purchase</h1>
+          <p>
+            Your transaction has been completed successfully. We have emailed you
+            details of your order.
+          </p>
+        </section>
 
-      <section class="order-summary-section">
-        <div class="order-summary-card">
-          <h2>Order summary</h2>
+        <section class="order-summary-section">
+          <div class="order-summary-card">
+            <h2>Order summary</h2>
 
-          <div class="order-carousel">
-            <article class="order-item">
-              <div class="order-item-image">
-                <img src="" alt="" />
-              </div>
-
-              <div class="order-item-info">
-                <div class="order-item-heading">
-                  <h3></h3>
-
-                  <div class="order-carousel-controls">
-                    <button
-                      type="button"
-                      class="order-previous"
-                      aria-label="Previous product"
-                    >
-                      <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                    </button>
-
-                    <span class="order-indicator" aria-live="polite">1/1</span>
-
-                    <button
-                      type="button"
-                      class="order-next"
-                      aria-label="Next product"
-                    >
-                      <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
-                    </button>
-                  </div>
+            <div class="order-carousel">
+              <article class="order-item">
+                <div class="order-item-image">
+                  <img src="" alt="" id="order-item-image" />
                 </div>
 
-                <p class="order-item-quantity">x1</p>
-                <p class="order-item-price"></p>
-              </div>
-            </article>
+                <div class="order-item-info">
+                  <div class="order-item-heading">
+                    <h3 id="order-item-title"></h3>
+
+                    <div class="order-carousel-controls">
+                      <button
+                        type="button"
+                        class="order-previous"
+                        id="order-previous"
+                        aria-label="Previous product"
+                      >
+                        <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                      </button>
+
+                      <span class="order-indicator" id="order-indicator" aria-live="polite">1/1</span>
+
+                      <button
+                        type="button"
+                        class="order-next"
+                        id="order-next"
+                        aria-label="Next product"
+                      >
+                        <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <p class="order-item-quantity" id="order-item-quantity">x1</p>
+                  <p class="order-item-price" id="order-item-price"></p>
+                </div>
+              </article>
+            </div>
+            <div class="order-total">
+              <p>Total:</p>
+              <p id="order-total"></p>
+            </div>
           </div>
-          <div class="order-total">
-            <p>Total:</p>
-            <p></p>
-          </div>
-        </div>
-        <a href="../index.html" class="back-home-btn">Back to home</a>
-      </section>
+          <a href="../index.html" class="back-home-btn">Back to home</a>
+        </section>
+      </div>
     </main>
   </body>
 </html>
