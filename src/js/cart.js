@@ -262,6 +262,12 @@ clearCartButton.addEventListener("click", () => {
 /* INIT */
 
 async function init() {
+  // Show the login message if the user is not logged in.
+  if (!isLoggedIn) {
+    renderEmptyCart();
+    return;
+  }
+
   // Fetch the complete product data from the cart.
   const products = await fetchCartProducts();
 
