@@ -73,19 +73,25 @@
     gap: 1rem;
     text-align: center;
     padding: 0 0.5rem;
+    font-size: 0.85rem;
 }
 
 .payment-option-container.selected .payment-details {
     display: flex;
 }
 
-.payment-details a {
+.payment-details button {
     text-align: center;
     text-decoration: none;
     background-color: var(--color-purple);
     color: var(--color-white);
     padding: 0.5rem;
     border-radius: 1rem;
+    border: none;
+}
+
+.payment-total {
+    color: var(--color-orange);
 }
 
 @media (min-width: 768px) {

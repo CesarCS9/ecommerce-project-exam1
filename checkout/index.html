@@ -72,7 +72,7 @@
 
         <div class="checkout-grid">
           <div class="shipping-details">
-            <form action="">
+            <form id="checkout-form" action="">
               <h2>Shipping address</h2>
               <div class="form-field">
                 <label for="fullname">Full name</label>
@@ -113,7 +113,7 @@
                   <span class="payment-total"></span>
                 </p>
 
-                <a href="../success/index.html">Pay</a>
+                <button type="submit" form="checkout-form">Pay</button>
               </div>
             </div>
 
@@ -130,7 +130,7 @@
                   <span class="payment-total"></span>
                 </p>
 
-                <a href="../success/index.html">Pay with Google Pay</a>
+                <button type="submit" form="checkout-form">Pay with Google Pay</button>
               </div>
             </div>
           </div>
