@@ -4,6 +4,7 @@
 
 const productImage = document.querySelector(".product-image img");
 const productTitle = document.querySelector(".product-heading h1");
+const shareButton = document.getElementById("share-button");
 const productRating = document.querySelector(".product-rating");
 const productPrice = document.querySelector(".product-price");
 const productDescription = document.querySelector(".product-description");
@@ -14,6 +15,8 @@ const reviewsList = document.querySelector(".reviews-list");
 const addToCartButton = document.querySelector(".add-to-cart");
 
 const cartToast = document.querySelector(".cart-toast");
+const cartToastMessage = cartToast.textContent;
+let cartToastTimeout;
 
 const quantityInput = document.querySelector(".quantity");
 
@@ -61,14 +64,19 @@ function renderProduct(product) {
 
   // Add the current product to the cart when the button is clicked.
   addToCartButton.addEventListener("click", () => {
-
     // Check if the user is logged in
-    if (!localStorage.getItem('accessToken')){
-      cartToast.textContent = 'Please log in to add items to your cart';
-      cartToast.classList.add('show');
+    if (!localStorage.getItem("accessToken")) {
+      // Show login message
+      cartToast.textContent = "Please log in to add items to your cart";
+      cartToast.classList.add("show");
 
-      setTimeout(()=>{
-        cartToast.classList.remove('show');
+      // Clear the previous timeout.
+      clearTimeout(cartToastTimeout);
+
+      // Hide the message after 3 seconds.
+      cartToastTimeout = setTimeout(() => {
+        cartToast.classList.remove("show");
+        cartToast.textContent = cartToastMessage;
       }, 3000);
 
       return;
@@ -191,6 +199,31 @@ function renderReviews(reviews) {
   });
 }
 
+/* SHARE PRODUCT */
+
+function shareProduct() {
+  //Get the current product URL
+  const productUrl = window.location.href;
+
+  //copy the URL to the clipboard
+  navigator.clipboard.writeText(productUrl);
+
+  //Show confirmation message
+  cartToast.textContent = "URL copied!";
+  cartToast.classList.add("show");
+
+  //Clear the previous timeout
+  clearTimeout(cartToastTimeout);
+
+  //Hide the message after 3 seconds.
+  cartToastTimeout = setTimeout(() => {
+    cartToast.classList.remove("show");
+    cartToast.textContent = cartToastMessage;
+  }, 3000);
+}
+
+shareButton.addEventListener("click", shareProduct);
+
 /* ADD TO CART */
 
 function addToCart(product) {
@@ -219,12 +252,16 @@ function addToCart(product) {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   // Show the confirmation message
+  cartToast.textContent = cartToastMessage;
   cartToast.classList.add("show");
 
-  // Hide the message after 2 seconds.
-  setTimeout(() => {
+  // Clear the previous timeout.
+  clearTimeout(cartToastTimeout);
+
+  // Hide the message after 3 seconds.
+  cartToastTimeout = setTimeout(() => {
     cartToast.classList.remove("show");
-  }, 2000);
+  }, 3000);
 }
 
 /* CHECK IF PRODUCT IS IN CART */
