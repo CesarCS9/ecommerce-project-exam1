@@ -14,6 +14,8 @@ const orderTotal = document.getElementById('order-total');
 const orderPrevious = document.getElementById('order-previous');
 const orderNext = document.getElementById('order-next');
 
+let currentIndex = 0;
+
 /* GET ORDER */
 
 function getOrder() {
@@ -36,8 +38,45 @@ function renderOrder(product) {
     //Render the product price
     const itemTotal = product.price * product.quantity;
     orderItemPrice.textContent = `${itemTotal.toFixed(2)} NOK`;
+
+    //Update page indicator
+    orderIndicator.textContent = `${currentIndex + 1}/${order.length}`;
 }
+
+function renderTotal() {
+    //Start the total at 0
+    let total = 0;
+
+    //Calculate the total price of the order
+    order.forEach((product) => {
+        total += product.price * product.quantity;
+    });
+
+    //Display the total
+    orderTotal.textContent = `${total.toFixed(2)} NOK`;
+}
+
+/* LISTENERS */
+
+orderNext.addEventListener('click', () => {
+    if (currentIndex === order.length -1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    renderOrder(order[currentIndex]);
+});
+
+orderPrevious.addEventListener('click', () => {
+    if (currentIndex === 0) {
+        currentIndex = order.length -1;
+    } else {
+        currentIndex--;
+    }
+    renderOrder(order[currentIndex]);
+});
 
 const order = getOrder();
 
-renderOrder(order[0]);
+renderOrder(order[currentIndex]);
+renderTotal();
