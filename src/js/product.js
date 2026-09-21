@@ -123,7 +123,7 @@ function renderReviews(reviews) {
     reviewItem.classList.add("review-item");
 
     const reviewIcon = document.createElement("i");
-    reviewIcon.classList.add("fa-solid", "fa-comments");
+    reviewIcon.classList.add("review-icon", "fa-solid", "fa-comments");
     reviewIcon.setAttribute("aria-hidden", "true");
 
     reviewItem.appendChild(reviewIcon);

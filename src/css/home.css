@@ -240,6 +240,7 @@ p {
 @media (min-width: 768px) {
   nav {
     border-bottom: none;
+    padding: 1rem;
   }
 
   .nav-desktop-links,
