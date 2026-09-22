@@ -2,12 +2,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+    margin: auto;
+}
+
+.back-home-btn {
+    text-decoration: none;
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: left;
+    width: 100%;
+    padding: 0 1rem;
+    font-size: 1rem;
+}
+
+.back-home-btn i {
+    color: var(--color-purple);
 }
 
 .product-image img {
     padding: 1rem;
     border-radius: 1.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .product-rating {
@@ -29,14 +49,16 @@
 }
 
 .share-button {
+    display: flex;
     background: none;
     border: none;
     color: var(--color-purple);
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .product-heading h1{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .product-tags i {
@@ -62,7 +84,7 @@
 .quantity {
   width: 100%;
   padding: 0.5rem 1rem;
-  border: solid 0.5px black;
+  border: solid 1px black;
   border-radius: 1.5rem;
   text-align: center;
   font-size: 1rem;
@@ -72,18 +94,26 @@
 .add-to-cart {
     background: none;
     border: none;
-    background-color: var(--color-purple);
-    color: var(--color-white);
+    background-color: var(--color-light-purple);
+    color: var(--color-black);
     padding: 0.5rem 1rem;
     border-radius: 1.5rem;
     width: 100%;
+    transition: ease 0.3s;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    color: var(--color-white);
+    background-color: var(--color-purple);
 }
 
 .reviews{
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .reviews h2{
+    font-size: 1.3rem;
     padding: 1rem;
 }
 
@@ -151,32 +181,48 @@
     header {
     position: relative;
   }
-    
- }
 
- @media (min-width: 1024px) {
-    .product {
+  .product {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
-        grid-template-rows: 1fr auto;
+        grid-template-rows: auto 1fr auto;
         gap: 1rem;
         align-items: start;
+        max-width: 1280px;
+        margin: auto;
+    }
+
+    .back-home-btn {
+        grid-column: 1 / -1;
+        grid-row: 1;
     }
 
     .product-image {
         grid-column: 1;
-        grid-row: 1 / span 2;
+        grid-row: 2 / span 2;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
     }
 
     .product-info {
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 2;
     }
 
     .product-purchase {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 3;
         align-self: end;
+    }
+
+    
+ }
+
+ @media (min-width: 1280px) {
+
+    .reviews {
+        max-width: 1280px;
+        margin: auto;
     }
 
     
