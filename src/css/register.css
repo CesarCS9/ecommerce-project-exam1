@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
 }
 
 .register h1{
@@ -11,13 +11,19 @@
 }
 
 .register-form {
+    background-color: var(--color-card);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.form-container {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-card);
-    padding: 3rem;
-    border-radius: 1.5rem;
-    gap: 1.8rem;
-    font-size: 1rem;
+    gap: 1.5rem;
+    margin: auto;
+    max-width: 500px;
 }
 
 .register-form input {
@@ -30,6 +36,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    width: 100%;
 }
 
 .name-fields {
@@ -46,12 +53,21 @@
 }
 
 .register-btn {
-    background-color: var(--color-purple);
+    background-color: var(--color-light-purple);
     border: none;
     padding: 0.8rem;
     border-radius: 1.5rem;
-    color: var(--color-white);
+    color: var(--color-black);
     font-size: 0.9rem;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+    transition: ease;
+}
+
+.register-btn:hover {
+    background-color: var(--color-purple);
+    color: var(--color-white);
 }
 
 .registration-success {
