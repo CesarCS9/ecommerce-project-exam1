@@ -1,11 +1,8 @@
-.checkout {
-    padding: 2rem 0;
-}
 
 .checkout h1 {
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 1.5rem;
 } 
 
 .checkout-grid {
@@ -18,6 +15,10 @@
     background-color: var(--color-card);
     border-radius: 1.5rem 1.5rem 0 0;
     padding:0.5rem;
+}
+
+.shipping-details form h2 {
+    font-size: 1.3rem;
 }
 
 .shipping-details form {
@@ -97,5 +98,24 @@
 @media (min-width: 768px) {
     header {
         position: relative;
+    }
+}
+
+@media (min-width:1280px) {
+    .checkout {
+        padding: 0 1.5rem;
+    }
+    .checkout-grid {
+        padding: 1rem;
+        background-color: var(--color-card);
+        border-radius: 1.5rem;
+    }
+    
+    .checkout-grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: auto;
+        max-width: 700px;
     }
 }
