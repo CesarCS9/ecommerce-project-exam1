@@ -4,6 +4,7 @@
   position: relative;
   height: calc(100dvh - 4rem);
   padding: 1rem;
+  transition: height 0.3s ease-out;
 }
 
 .hero-video {
@@ -55,6 +56,11 @@
   background: none;
   border: 0;
   cursor: pointer;
+  transition: ease 0.3s ;
+}
+
+.carousel-button:hover {
+  color: var(--color-light-purple);
 }
 
 .carousel-button i {
@@ -111,6 +117,7 @@
 
 .hot-picks {
   padding: 2rem 1rem;
+  margin: auto;
 }
 
 .hot-picks h2 {
@@ -174,6 +181,13 @@
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   white-space: nowrap;
+  transition: ease 0.3s;
+}
+
+.product-buy-btn:hover{
+  color: var(--color-white);
+  background-color: var(--color-purple);
+
 }
 
 .product-title {
@@ -188,6 +202,7 @@
 /* Features */
 
 .features {
+  margin: auto;
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 2.5rem 1rem;
@@ -304,6 +319,12 @@ p {
 
   .carousel-buy-btn {
     font-size: 0.9rem;
+    transition: ease 0.3s;
+  }
+
+  .carousel-buy-btn:hover {
+    color: var(--color-white);
+    background-color: var(--color-purple);
   }
 
   .product-grid {
@@ -322,11 +343,19 @@ p {
 }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     padding: 2rem 0;
+  }
+
+  .hot-picks {
+    max-width: 1280px;
+  }
+
+  .features {
+    max-width: 1280px;
   }
   
   .features-grid {
