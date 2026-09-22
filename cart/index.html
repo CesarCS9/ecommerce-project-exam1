@@ -29,7 +29,9 @@
     <header>
       <nav aria-label="Main navigation">
         <div>
-          <a href="../index.html" class="nav-logo logo">Stuff<span class="logo-highlight">..</span></a>
+          <a href="../index.html" class="nav-logo logo"
+            >Stuff<span class="logo-highlight">..</span></a
+          >
           <span class="nav-welcome">Welcome!</span>
         </div>
         <div class="nav-actions">
@@ -58,7 +60,9 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="nav-mobile-menu">
           <a href="../account/login.html" id="mobile-login-link">Log in</a>
-          <a href="../account/register.html" id="mobile-register-link">Register</a>
+          <a href="../account/register.html" id="mobile-register-link"
+            >Register</a
+          >
           <a href="../cart/index.html">Shopping cart</a>
         </div>
       </nav>
@@ -67,20 +71,30 @@
       <section class="cart">
         <h1>Cart</h1>
         <div class="cart-card">
-          <div class="cart-items"></div>
+          <div class="cart-card-container">
+            <div class="cart-items"></div>
 
-          <button type="button" class="clear-cart" aria-label="Clear all items">
-            Clear all
-          </button>
+            <button
+              type="button"
+              class="clear-cart"
+              aria-label="Clear all items"
+            >
+              Clear all
+            </button>
 
-          <div class="cart-total">
-            <h3>Subtotal</h3>
-            <p class="subtotal"></p>
+            <div class="cart-total">
+              <h2>Subtotal</h2>
+              <p class="subtotal"></p>
+            </div>
+
+            <a
+              href="../checkout/index.html"
+              class="checkout-button"
+              id="checkout-button"
+            >
+              Checkout
+            </a>
           </div>
-
-          <a href="../checkout/index.html" class="checkout-button" id="checkout-button">
-            Checkout
-          </a>
         </div>
       </section>
     </main>
