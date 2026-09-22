@@ -4,7 +4,7 @@
 
 .login-video {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   object-fit: cover;
   padding: 1rem;
   border-radius: 2rem;
@@ -18,6 +18,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.login-form-container {
+    width: 100%;
+    padding: 0 2.5rem ;
 }
 
 .login-welcome {
@@ -27,6 +34,7 @@
   background-color: var(--color-white);
   padding: 1.5rem 1rem 1rem 1rem;
   border-bottom-right-radius: 1.5rem;
+  font-size: 1rem;
 }
 
 .login-brand {
@@ -37,7 +45,7 @@
 
 .login-brand a {
     color: var(--color-white);
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .login-brand p {
@@ -55,7 +63,7 @@
 
 .login-form h1 {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 1rem;
 }
 
@@ -68,6 +76,7 @@
     padding: 0.5rem;
     border-radius: 1.5rem;
     border: none;
+    font-size: 1rem;
 }
 
 .login-button {
@@ -77,6 +86,13 @@
     border: none;
     background-color: var(--color-light-purple);
     font-weight: 500;
+    transition: ease 0.3s;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    color: var(--color-white);
+    background-color: var(--color-purple);
 }
 
 .create-account {
@@ -98,14 +114,17 @@
 @media (min-width: 768px) {
 
   .login-content {
-    display: flex;
-    flex-direction: row;
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
     align-items: center;
     justify-content: center;
-    gap: 4rem;
+    gap: 1rem;
+    margin: auto;
+    max-width: 700px;
   }
 
   .login-brand{
+    margin: auto;
     text-align: left;
   }
 
@@ -117,4 +136,23 @@
     font-size: 1.6rem;
 }
 
+.login-form-container {
+    margin: auto;
+}
+
+
+}
+
+@media (min-width: 1280px) {
+    .login-content{
+        max-width: 800px;
+    }
+
+    .login-form-container {
+    width: 500px;
+}
+
+.create-account {
+    padding: 3rem 1rem 1rem 1rem;
+}
 }
