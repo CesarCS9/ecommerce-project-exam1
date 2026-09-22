@@ -84,11 +84,19 @@
 .payment-details button {
     text-align: center;
     text-decoration: none;
-    background-color: var(--color-purple);
-    color: var(--color-white);
+    background-color: var(--color-light-purple);
+    color: var(--color-black);
     padding: 0.5rem;
     border-radius: 1rem;
+    font-weight: 500;
     border: none;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.payment-details button:hover {
+    background-color: var(--color-purple);
+    color: var(--color-white);
 }
 
 .payment-total {

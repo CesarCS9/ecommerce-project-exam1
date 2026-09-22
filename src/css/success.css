@@ -1,5 +1,5 @@
 .success-page {
-  height: calc(100vh - 5rem);
+  height: calc(100dvh - 5rem);
   position: relative;
 }
 
@@ -103,8 +103,10 @@
 }
 
 .order-carousel-controls button {
+  color: var(--color-black);
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .order-total {
@@ -125,6 +127,13 @@
   text-decoration: none;
   padding: 0.5rem;
   border-radius: 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.back-home-btn:hover {
+  background-color: var(--color-purple);
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -141,4 +150,12 @@
   .back-home-btn {
     width: 500px;
   }
+
+  .success-message h1 {
+  font-size: 1.5rem;
+}
+
+  .success-message p {
+    font-size: 1.2rem;
+}
 }
