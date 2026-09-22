@@ -312,6 +312,14 @@ p {
     gap: 1.5rem;
     padding: 2rem 0;
   }
+
+  .hot-picks {
+  padding: 2rem;
+}
+
+.features {
+  padding: 1rem 2rem 2.5rem 2rem;
+}
 }
 
 @media (min-width: 1024px) {
