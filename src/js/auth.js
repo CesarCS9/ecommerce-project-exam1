@@ -18,8 +18,6 @@ const accessToken = sessionStorage.getItem("accessToken");
 const email = sessionStorage.getItem("email");
 
 if (accessToken) {
-  //User is logged in
-  console.log("user is logged in", email);
 
   // Get username from email
   const username = email.split("@")[0];
@@ -37,10 +35,7 @@ if (accessToken) {
 
   // Move logout link to the bottom.
   authMobileMenu.appendChild(mobileLoginLink);
-} else {
-  //User is no logged in
-  console.log("User is not logged in");
-}
+} 
 
 /* LOGOUT */
 

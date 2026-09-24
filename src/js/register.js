@@ -41,9 +41,6 @@ async function registerUser(name, email, password) {
     // Convert the API response to JSON.
     const data = await response.json();
 
-    // Show the response in the console while testing.
-    console.log(data);
-
     // Check if the register worked
     if (response.ok) {
         showRegistrationSuccess();

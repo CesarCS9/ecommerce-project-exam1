@@ -34,7 +34,6 @@ async function fetchProduct() {
     const response = await fetch(`${API_URL}/${productId}`);
     const data = await response.json();
 
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.error("Failed to fetch product");

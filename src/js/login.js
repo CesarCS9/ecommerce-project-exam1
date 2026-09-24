@@ -44,8 +44,6 @@ async function loginUser(email, password) {
       sessionStorage.setItem("email", email);
       window.location.href = "../index.html";
     } else {
-      // Show the API response in the console while testing.
-      console.log(data);
       loginMessage.textContent = `Error: ${data.errors[0].message}`;
     }
   } catch (error) {
