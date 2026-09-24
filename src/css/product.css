@@ -22,6 +22,11 @@
     color: var(--color-purple);
 }
 
+.product-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
 .product-image img {
     padding: 1rem;
     border-radius: 1.5rem;
