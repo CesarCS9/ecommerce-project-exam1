@@ -109,8 +109,18 @@ nav span {
 }
 
 .nav-mobile-menu {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 1rem;
+  background-color: var(--color-white);
+  width: 100%;
   z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .nav-mobile-menu a {
@@ -119,14 +129,8 @@ nav span {
 }
 
 .nav-mobile-menu.active {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0px;
-  padding: 1rem;
-  background-color: var(--color-white);
-  width: 100%;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* FOOTER */

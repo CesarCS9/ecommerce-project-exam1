@@ -247,7 +247,10 @@ p {
 .features-cta {
   text-decoration: none;
   color: var(--color-black);
-  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.3rem;
 }
 
 /* RESPONSIVE */
