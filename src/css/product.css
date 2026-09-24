@@ -96,6 +96,13 @@
   background-color: var(--color-white);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .add-to-cart {
     background: none;
     border: none;
