@@ -156,6 +156,10 @@
   border-radius: 1rem;
 }
 
+.product-image-link {
+  display: block;
+}
+
 .product-price {
   position: absolute;
   background-color: var(--color-white);

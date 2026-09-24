@@ -168,11 +168,17 @@ function renderCart(products) {
     // Create the product price.
     const price = document.createElement("p");
     price.classList.add("cart-item-price");
+
+    // Use the discounted price when available.
+    const itemPrice =
+      product.discountedPrice < product.price
+        ? product.discountedPrice
+        : product.price;
+
     // Calculate the total price for this product based on its quantity.
-    const itemTotal = product.price * product.quantity;
+    const itemTotal = itemPrice * product.quantity;
 
     price.textContent = `${itemTotal.toFixed(2)} NOK`;
-
     cartItemInfo.appendChild(price);
 
     // Create the quantity selector.
@@ -194,7 +200,7 @@ function renderCart(products) {
       // Get the new quantity from the input.
       const newQuantity = Number(quantityInput.value);
 
-      // Get the current cart from localStorage.
+      // Get the current cart from sessionStorage.
       const cart = getCart();
 
       // Find the product in the cart using its ID.
@@ -209,8 +215,14 @@ function renderCart(products) {
       // Update the quantity in the product object.
       product.quantity = newQuantity;
 
+      // Use the discounted price when available.
+      const itemPrice =
+        product.discountedPrice < product.price
+          ? product.discountedPrice
+          : product.price;
+
       // Calculate the new total price for this product.
-      const newItemTotal = product.price * newQuantity;
+      const newItemTotal = itemPrice * newQuantity;
 
       // Update the price shown on the page.
       price.textContent = `${newItemTotal.toFixed(2)} NOK`;
@@ -238,9 +250,15 @@ function renderSubtotal(products) {
 
   // Go through each product in the cart.
   products.forEach((product) => {
-    // Calculate the price of this product based on its quantity.
-    total += product.price * product.quantity;
-  });
+  // Use the discounted price when available.
+  const itemPrice =
+    product.discountedPrice < product.price
+      ? product.discountedPrice
+      : product.price;
+
+  // Calculate the price of this product based on its quantity.
+  total += itemPrice * product.quantity;
+});
 
   // Display the final subtotal.
   subtotal.textContent = `${total.toFixed(2)} NOK`;

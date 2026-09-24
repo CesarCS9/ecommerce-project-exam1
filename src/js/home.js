@@ -2,7 +2,7 @@
 
 /* DOM ELEMENTS */
 
-const productGrid = document.querySelector('.product-grid');
+const productGrid = document.querySelector(".product-grid");
 
 const carouselImage = document.querySelector(".carousel-image");
 const carouselTitle = document.querySelector(".carousel-title");
@@ -33,7 +33,7 @@ async function fetchProducts() {
 
 // Returns the 12 highest-rated products
 function getTopRatedProducts(products) {
-  const sortedProducts = [...products].sort((a,b) => b.rating - a.rating);
+  const sortedProducts = [...products].sort((a, b) => b.rating - a.rating);
 
   return sortedProducts.slice(0, 12);
 }
@@ -42,60 +42,67 @@ function getTopRatedProducts(products) {
 function renderProducts(products) {
   products.forEach((product) => {
     // Create the main product card
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
 
     // Create the image container
-    const productImageContainer = document.createElement('div');
-    productImageContainer.classList.add('product-image-container');
+    const productImageContainer = document.createElement("div");
+    productImageContainer.classList.add("product-image-container");
 
     productCard.appendChild(productImageContainer);
 
+    const productImageLink = document.createElement("a");
+    productImageLink.classList.add("product-image-link");
+    productImageLink.href = `product/index.html?id=${product.id}`;
+
     // Create the product image
-    const productImage = document.createElement('img');
-    productImage.classList.add('product-image');
+    const productImage = document.createElement("img");
+    productImage.classList.add("product-image");
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
+    productImage.loading = "lazy";
+    productImage.decoding = "async";
 
-    productImageContainer.appendChild(productImage);
+    productImageLink.appendChild(productImage);
+    productImageContainer.appendChild(productImageLink);
 
     // Create the product price
-    const productPrice = document.createElement('p');
-    productPrice.classList.add('product-price');
+    const productPrice = document.createElement("p");
+    productPrice.classList.add("product-price");
     productPrice.textContent = `${product.price} NOK`;
 
     productImageContainer.appendChild(productPrice);
 
     // Create the button linking to the product-specific page
-    const productButton = document.createElement('a');
-    productButton.classList.add('product-buy-btn');
-    productButton.textContent = 'BUY NOW';
-    productButton.href =  `product/index.html?id=${product.id}`;
+    const productButton = document.createElement("a");
+    productButton.classList.add("product-buy-btn");
+    productButton.textContent = "BUY NOW";
+    productButton.href = `product/index.html?id=${product.id}`;
 
     productImageContainer.appendChild(productButton);
 
     // Create the product title
-    const productTitle = document.createElement('h3');
-    productTitle.classList.add('product-title');
+    const productTitle = document.createElement("h3");
+    productTitle.classList.add("product-title");
     productTitle.textContent = product.title;
 
     productCard.appendChild(productTitle);
 
     // Create the rating stars
-    const productRating = document.createElement('div');
-    productRating.classList.add('product-rating');
+    const productRating = document.createElement("div");
+    productRating.classList.add("product-rating");
 
     const rating = Math.round(product.rating);
 
-    for (let i = 0; i < rating; i++){
-      const star = document.createElement('i');
-      star.classList.add('fa-solid', 'fa-star');
+    for (let i = 0; i < rating; i++) {
+      const star = document.createElement("i");
+      star.classList.add("fa-solid", "fa-star");
       productRating.appendChild(star);
     }
 
     // Display the exact rating next to the stars
-    const ratingNumber = document.createElement('span');
-    ratingNumber.classList.add('product-rating-number');
+    const ratingNumber = document.createElement("span");
+    ratingNumber.classList.add("product-rating-number");
     ratingNumber.textContent = `(${product.rating})`;
 
     productRating.appendChild(ratingNumber);
@@ -103,10 +110,7 @@ function renderProducts(products) {
 
     // Add the completed card to the product grid
     productGrid.appendChild(productCard);
-
-
   });
-
 }
 
 /* CAROUSEL */
@@ -125,18 +129,18 @@ function renderCarouselProduct(product) {
 
 // Adds a fade transition when changing products
 function changeCarouselProduct(product) {
-    carouselProduct.classList.add("fade");
+  carouselProduct.classList.add("fade");
 
-    setTimeout(() => {
-        renderCarouselProduct(product);
-        carouselProduct.classList.remove("fade");
-    }, 300);
+  setTimeout(() => {
+    renderCarouselProduct(product);
+    carouselProduct.classList.remove("fade");
+  }, 300);
 }
 
 // Moves to the next carousel product
 function showNextProduct() {
   currentIndex++;
-  
+
   if (currentIndex >= carouselProducts.length) {
     currentIndex = 0;
   }
@@ -157,7 +161,7 @@ function showPreviousProduct() {
 
 // Automatically changes the product every 7 seconds
 function startCarousel() {
-    setInterval(showNextProduct, 7000);
+  setInterval(showNextProduct, 7000);
 }
 
 /* EVENT LISTENERS */
@@ -170,16 +174,16 @@ nextButton.addEventListener("click", showNextProduct);
 
 // Fetches products, selects carousel items and starts the carousel
 async function init() {
-    const products = await fetchProducts();
+  const products = await fetchProducts();
 
-    // Initialise carousel
-    carouselProducts = [products[16], products[1], products[10]];
-    renderCarouselProduct(carouselProducts[currentIndex]);
-    startCarousel();
+  // Initialise carousel
+  carouselProducts = [products[16], products[1], products[10]];
+  renderCarouselProduct(carouselProducts[currentIndex]);
+  startCarousel();
 
-    // Render top-rated products
-    const topRatedProducts = getTopRatedProducts(products);
-    renderProducts(topRatedProducts);
+  // Render top-rated products
+  const topRatedProducts = getTopRatedProducts(products);
+  renderProducts(topRatedProducts);
 }
 
 init();

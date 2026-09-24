@@ -49,7 +49,29 @@ function renderProduct(product) {
 
   /* Product information */
   productTitle.textContent = product.title;
+
+  // Render product price
+  productPrice.textContent = "";
+
+  if (
+  product.discountedPrice !== undefined &&
+  product.discountedPrice < product.price
+) {
+  const discountedPrice = document.createElement("span");
+  discountedPrice.classList.add("discounted-price");
+  discountedPrice.textContent = `${product.discountedPrice} NOK`;
+
+  const originalPrice = document.createElement("span");
+  originalPrice.classList.add("original-price");
+  originalPrice.textContent = `${product.price} NOK`;
+
+  productPrice.append(discountedPrice, originalPrice);
+  
+} else {
+
   productPrice.textContent = `${product.price} NOK`;
+}
+
   productDescription.textContent = product.description;
 
   /* Product rating */

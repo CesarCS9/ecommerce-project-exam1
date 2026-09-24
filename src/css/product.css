@@ -40,6 +40,17 @@
     font-size: 1rem;
 }
 
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--color-light-purple);
+}
+
 .product-info {
     display: flex;
     flex-direction: column;
