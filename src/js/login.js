@@ -40,8 +40,8 @@ async function loginUser(email, password) {
     const data = await response.json();
 
     if (response.ok) {
-      localStorage.setItem("accessToken", data.data.accessToken);
-      localStorage.setItem("email", email);
+      sessionStorage.setItem("accessToken", data.data.accessToken);
+      sessionStorage.setItem("email", email);
       window.location.href = "../index.html";
     } else {
       // Show the API response in the console while testing.

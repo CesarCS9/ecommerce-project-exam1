@@ -16,14 +16,14 @@ const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 /* AUTHENTICATION */
 
-const isLoggedIn = localStorage.getItem("accessToken");
+const isLoggedIn = sessionStorage.getItem("accessToken");
 
 /* GET CART */
 
 function getCart() {
   // Get the cart from localStorage.
   // If there is no cart, return an empty array.
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
   return cart;
 }
@@ -141,8 +141,8 @@ function renderCart(products) {
       // Remove the product with this ID from the cart.
       const updatedCart = cart.filter((item) => item.id !== product.id);
 
-      // Save the updated cart to localStorage.
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      // Save the updated cart to sessionStorage.
+      sessionStorage.setItem("cart", JSON.stringify(updatedCart));
 
       // Remove the product card from the page.
       cartItem.remove();
@@ -203,8 +203,8 @@ function renderCart(products) {
       // Update the quantity.
       cartProduct.quantity = newQuantity;
 
-      // Save the updated cart to localStorage.
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // Save the updated cart to sessionStorage.
+      sessionStorage.setItem("cart", JSON.stringify(cart));
 
       // Update the quantity in the product object.
       product.quantity = newQuantity;
@@ -249,8 +249,8 @@ function renderSubtotal(products) {
 /* CLEAR CART */
 
 clearCartButton.addEventListener("click", () => {
-  // Remove all products from localStorage.
-  localStorage.removeItem("cart");
+  // Remove all products from sessionStorage.
+  sessionStorage.removeItem("cart");
 
   // Show the empty cart state.
   renderEmptyCart();

@@ -1,4 +1,4 @@
-'use-strict'
+'use-strict';
 
 /* DOM */
 
@@ -19,9 +19,9 @@ let currentIndex = 0;
 /* GET ORDER */
 
 function getOrder() {
-    //Get the completed order from localStorage
+    //Get the completed order from sessionStorage
     //If there is no order, return empty array
-    const order = JSON.parse(localStorage.getItem('lastOrder')) || [];
+    const order = JSON.parse(sessionStorage.getItem('lastOrder')) || [];
     return order;
 }
 

@@ -15,7 +15,7 @@ const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 /* AUTHENTICATION */
 
-const isLoggedIn = localStorage.getItem("accessToken");
+const isLoggedIn = sessionStorage.getItem("accessToken");
 
 if (!isLoggedIn) {
   window.location.href = "../account/login.html";
@@ -24,9 +24,9 @@ if (!isLoggedIn) {
 /* GET CART */
 
 function getCart() {
-  // Get the cart from localStorage.
+  // Get the cart from session Storage.
   // If there is no cart, return an empty array.
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
   return cart;
 }
 
@@ -95,10 +95,10 @@ checkoutForm.addEventListener("submit", async (event) => {
 
   // Save the completed order for the success page
   const products = await fetchCartProducts();
-  localStorage.setItem("lastOrder", JSON.stringify(products));
+  sessionStorage.setItem("lastOrder", JSON.stringify(products));
 
   //Reset the cart
-  localStorage.removeItem("cart");
+  sessionStorage.removeItem("cart");
 
   window.location.href = "../success/index.html";
 });

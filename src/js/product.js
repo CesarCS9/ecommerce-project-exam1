@@ -65,7 +65,7 @@ function renderProduct(product) {
   // Add the current product to the cart when the button is clicked.
   addToCartButton.addEventListener("click", () => {
     // Check if the user is logged in
-    if (!localStorage.getItem("accessToken")) {
+    if (!sessionStorage.getItem("accessToken")) {
       // Show login message
       cartToast.textContent = "Please log in to add items to your cart";
       cartToast.classList.add("show");
@@ -227,9 +227,9 @@ shareButton.addEventListener("click", shareProduct);
 /* ADD TO CART */
 
 function addToCart(product) {
-  // Get the current cart from localStorage.
+  // Get the current cart from sessionStorage.
   // If there is no cart yet, use an empty array.
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
   // Get the quantity selected by the user.
   const quantity = Number(quantityInput.value);
@@ -248,8 +248,8 @@ function addToCart(product) {
     });
   }
 
-  // Save the updated cart back to localStorage
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // Save the updated cart back to sessionStorage
+  sessionStorage.setItem("cart", JSON.stringify(cart));
 
   // Show the confirmation message
   cartToast.textContent = cartToastMessage;
@@ -267,8 +267,8 @@ function addToCart(product) {
 /* CHECK IF PRODUCT IS IN CART */
 
 function checkIfInCart(product) {
-  // Get the current cart from localStorage.
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // Get the current cart from sessionStorage.
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
   // Check if the current product already exists in the cart.
   const productInCart = cart.find((item) => item.id === product.id);

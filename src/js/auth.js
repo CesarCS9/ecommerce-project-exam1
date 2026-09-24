@@ -3,7 +3,6 @@
 /* DOM ELEMENTS */
 
 const navWelcome = document.querySelector(".nav-welcome");
-const navDesktopLinks = document.querySelector(".nav-desktop-links");
 
 const loginLink = document.getElementById("login-link");
 const mobileLoginLink = document.getElementById("mobile-login-link");
@@ -15,8 +14,8 @@ const authMobileMenu = document.querySelector(".nav-mobile-menu");
 
 /* AUTHENTICATION */
 
-const accessToken = localStorage.getItem("accessToken");
-const email = localStorage.getItem("email");
+const accessToken = sessionStorage.getItem("accessToken");
+const email = sessionStorage.getItem("email");
 
 if (accessToken) {
   //User is logged in
@@ -49,11 +48,11 @@ loginLink.addEventListener("click", (event) => {
   if (accessToken) {
     event.preventDefault();
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("email");
+    sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("email");
 
     // Clear the cart when logging out.
-    localStorage.removeItem("cart");
+    sessionStorage.removeItem("cart");
 
     window.location.href = loginLink.href;
   }
@@ -63,11 +62,11 @@ mobileLoginLink.addEventListener("click", (event) => {
   if (accessToken) {
     event.preventDefault();
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("email");
+    sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("email");
 
     // Clear the cart when logging out.
-    localStorage.removeItem("cart");
+    sessionStorage.removeItem("cart");
 
     window.location.href = mobileLoginLink.href;
   }
