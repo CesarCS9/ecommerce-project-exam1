@@ -127,6 +127,14 @@ Details about AI usage are documented in:
 
 AI_LOG.md
 
+## Credits
+
+### Hero Video
+
+Video by [Artem Podrez](https://www.pexels.com/@artempodrez/) from [Pexels](https://www.pexels.com/es-es/video/creativo-purpura-abstracto-imagen-7234993/).
+
+The poster images used for the video were captured from the same video.
+
 ## Author
 
 Cesar Castillo
