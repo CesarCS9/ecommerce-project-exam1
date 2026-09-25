@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* DOM */
 
@@ -33,62 +33,71 @@ function getCart() {
 /* FETCH CART PRODUCTS*/
 
 async function fetchCartProducts() {
-    //Get the products stored in the cart
-    const cart = getCart();
+  //Get the products stored in the cart
+  const cart = getCart();
 
-    //Create an empty array to store the complete product data
-    const products = [];
+  //Create an empty array to store the complete product data
+  const products = [];
 
-    //Go through each item in the cart
-    for (const item of cart) {
-        //Fetch the product using its ID
-        const response = await fetch (`${API_URL}/${item.id}`);
-        const data = await response.json();
+  //Go through each item in the cart
+  for (const item of cart) {
+    //Fetch the product using its ID
+    const response = await fetch(`${API_URL}/${item.id}`);
+    const data = await response.json();
 
-        //Add the quantity from the car to the product
-        data.data.quantity = item.quantity;
+    //Add the quantity from the car to the product
+    data.data.quantity = item.quantity;
 
-        //Add the prodcut to the products array
-        products.push(data.data);
-    }
+    //Add the prodcut to the products array
+    products.push(data.data);
+  }
 
-    return products;
-    
+  return products;
 }
 
 /* CALCULATE TOTAL AMOUNT */
 
-function renderTotal (products){
-    //Start the total at 0
-    let total = 0;
+function renderTotal(products) {
+  //Start the total at 0
+  let total = 0;
 
-    //Calculate the total price
-    products.forEach((product) => {
-        total += product.price * product.quantity;
-    });
+  // Calculate the total price.
+  products.forEach((product) => {
+    // Use the discounted price when available.
+    let itemPrice;
 
-    //Display the total for each payment option
-    paymentTotals.forEach((paymentTotal) => {
-        paymentTotal.textContent = `${total.toFixed(2)} NOK`;
-    });
+    if (product.discountedPrice < product.price) {
+      itemPrice = product.discountedPrice;
+    } else {
+      itemPrice = product.price;
+    }
+
+    // Calculate the total price.
+    total += itemPrice * product.quantity;
+  });
+
+  // Display the total for each payment option.
+  paymentTotals.forEach((paymentTotal) => {
+    paymentTotal.textContent = `${total.toFixed(2)} NOK`;
+  });
 }
 
 /* LISTENERS PAYMENT OPTIONS */
 
 cardPayment.addEventListener("change", function () {
-    googlePay.parentElement.parentElement.classList.remove("selected");
-    cardPayment.parentElement.parentElement.classList.add("selected");
+  googlePay.parentElement.parentElement.classList.remove("selected");
+  cardPayment.parentElement.parentElement.classList.add("selected");
 });
 
 googlePay.addEventListener("change", function () {
-    cardPayment.parentElement.parentElement.classList.remove("selected");
-    googlePay.parentElement.parentElement.classList.add("selected");
+  cardPayment.parentElement.parentElement.classList.remove("selected");
+  googlePay.parentElement.parentElement.classList.add("selected");
 });
 
 checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  //Check the required fields 
+  //Check the required fields
   if (!checkoutForm.checkValidity()) {
     return;
   }
@@ -106,12 +115,11 @@ checkoutForm.addEventListener("submit", async (event) => {
 /* INIT */
 
 async function init() {
-    //Fetch the products in the cart
-    const products = await fetchCartProducts();
+  //Fetch the products in the cart
+  const products = await fetchCartProducts();
 
-    //Calculate and display the total
-    renderTotal(products);
-    
+  //Calculate and display the total
+  renderTotal(products);
 }
 
 init();

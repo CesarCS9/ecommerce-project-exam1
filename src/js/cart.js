@@ -169,11 +169,14 @@ function renderCart(products) {
     const price = document.createElement("p");
     price.classList.add("cart-item-price");
 
-    // Use the discounted price when available.
-    const itemPrice =
-      product.discountedPrice < product.price
-        ? product.discountedPrice
-        : product.price;
+    // Use the discounted price when available
+    let itemPrice;
+
+    if (product.discountedPrice < product.price) {
+      itemPrice = product.discountedPrice;
+    } else {
+      itemPrice = product.price;
+    }
 
     // Calculate the total price for this product based on its quantity.
     const itemTotal = itemPrice * product.quantity;
@@ -216,10 +219,13 @@ function renderCart(products) {
       product.quantity = newQuantity;
 
       // Use the discounted price when available.
-      const itemPrice =
-        product.discountedPrice < product.price
-          ? product.discountedPrice
-          : product.price;
+      let itemPrice;
+
+      if (product.discountedPrice < product.price) {
+        itemPrice = product.discountedPrice;
+      } else {
+        itemPrice = product.price;
+      }
 
       // Calculate the new total price for this product.
       const newItemTotal = itemPrice * newQuantity;
@@ -250,15 +256,18 @@ function renderSubtotal(products) {
 
   // Go through each product in the cart.
   products.forEach((product) => {
-  // Use the discounted price when available.
-  const itemPrice =
-    product.discountedPrice < product.price
-      ? product.discountedPrice
-      : product.price;
+    // Use the discounted price when available.
+    let itemPrice;
 
-  // Calculate the price of this product based on its quantity.
-  total += itemPrice * product.quantity;
-});
+    if (product.discountedPrice < product.price) {
+      itemPrice = product.discountedPrice;
+    } else {
+      itemPrice = product.price;
+    }
+
+    // Calculate the price of this product based on its quantity.
+    total += itemPrice * product.quantity;
+  });
 
   // Display the final subtotal.
   subtotal.textContent = `${total.toFixed(2)} NOK`;
