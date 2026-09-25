@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>STUFF | Terms & Conditions</title>
+    <meta
+      name="description"
+      content="Read the terms and conditions for using the STUFF online shop."
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="../src/css/terms.css" />
+
+    <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/auth.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <div>
+          <a href="../index.html" class="nav-logo logo">
+            Stuff<span class="logo-highlight">..</span>
+          </a>
+
+          <span class="nav-welcome">Welcome!</span>
+        </div>
+
+        <div class="nav-actions">
+          <!-- Desktop navigation -->
+          <div class="nav-desktop-links">
+            <a href="../account/login.html" id="login-link">Log in</a>
+            <span>/</span>
+            <a href="../account/register.html" id="register-link"> Register </a>
+
+            <a href="../cart/index.html" aria-label="Shopping cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Mobile navigation -->
+          <button
+            class="nav-burger"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="nav-mobile-menu">
+          <a href="../account/login.html" id="mobile-login-link"> Log in </a>
+
+          <a href="../account/register.html" id="mobile-register-link">
+            Register
+          </a>
+
+          <a href="../cart/index.html"> Shopping cart </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="terms-page">
+      <article class="terms-container">
+        <header class="terms-header">
+          <p class="terms-label">STUFF</p>
+          <h1>Terms & Conditions</h1>
+          <p>
+            These terms explain the basic rules for using the STUFF online shop.
+          </p>
+        </header>
+
+        <section aria-labelledby="about-terms">
+          <h2 id="about-terms">1. About STUFF</h2>
+          <p>
+            STUFF is an online shop created as a front-end development project.
+            The website allows users to browse products, create an account, add
+            products to a cart and complete a simulated checkout.
+          </p>
+        </section>
+
+        <section aria-labelledby="accounts">
+          <h2 id="accounts">2. Accounts</h2>
+          <p>
+            Users may create an account using a valid email address and
+            password. You are responsible for providing accurate information and
+            for keeping your login details private.
+          </p>
+        </section>
+
+        <section aria-labelledby="products">
+          <h2 id="products">3. Products and prices</h2>
+          <p>
+            Product information, images, prices, ratings and reviews are
+            provided through the STUFF online shop API and may change over time.
+          </p>
+          <p>
+            Discounted prices are displayed where applicable. Prices shown
+            during checkout represent the amount used for the simulated
+            purchase.
+          </p>
+        </section>
+
+        <section aria-labelledby="cart">
+          <h2 id="cart">4. Shopping cart and checkout</h2>
+          <p>
+            Products can be added to the shopping cart by authenticated users.
+            Quantities can be changed or products can be removed before
+            completing the checkout.
+          </p>
+          <p>
+            The checkout on this website is for demonstration purposes only. No
+            real payment is processed.
+          </p>
+        </section>
+
+        <section aria-labelledby="use">
+          <h2 id="use">5. Acceptable use</h2>
+          <p>
+            The website should be used responsibly and only for its intended
+            purpose of browsing products and using the available shopping
+            features.
+          </p>
+        </section>
+
+        <section aria-labelledby="content">
+          <h2 id="content">6. Website content</h2>
+          <p>
+            Product images, descriptions, reviews and other product information
+            may originate from external data sources. STUFF does not guarantee
+            that all information will always be complete or up to date.
+          </p>
+        </section>
+
+        <section aria-labelledby="changes">
+          <h2 id="changes">7. Changes to these terms</h2>
+          <p>
+            These terms may be updated when the website or its features change.
+            The version published on this page is the version that applies to
+            the current website.
+          </p>
+        </section>
+
+        <section aria-labelledby="contact">
+          <h2 id="contact">8. Contact</h2>
+          <p>
+            For questions about the STUFF website, please use the contact
+            details provided through the project documentation.
+          </p>
+        </section>
+
+        <p class="terms-updated">Last updated: September 2026</p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-image">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="../assets/images/decorative-footer-desktop.png"
+          />
+          <img
+            src="../assets/images/decorative-footer-mobile.png"
+            alt=""
+            loading="lazy"
+          />
+        </picture>
+
+        <div class="footer-content">
+          <h2 class="logo">Stuff<span class="logo-highlight">..</span></h2>
+
+          <p>Everyday things, better</p>
+
+          <a href="../terms/index.html" class="footer-terms">
+            Terms & conditions
+          </a>
+        </div>
+
+        <p class="footer-copyright">&reg; 2024 STUFF. All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
