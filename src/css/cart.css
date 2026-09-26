@@ -66,6 +66,7 @@
     background:none;
     border: none;
     color: var(--color-orange);
+    cursor: pointer;
 }
 
 .quantity {
@@ -81,6 +82,7 @@
     font-size: 1rem;
     text-align: right;
     color: var(--color-black);
+    cursor: pointer;
 }
 
 .empty-cart-message {
