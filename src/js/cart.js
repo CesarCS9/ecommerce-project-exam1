@@ -194,6 +194,7 @@ function renderCart(products) {
     quantityInput.classList.add("quantity");
     quantityInput.value = product.quantity;
     quantityInput.min = "1";
+    quantityInput.step = "1";
     quantityInput.setAttribute("aria-label", "Quantity");
 
     quantitySelector.appendChild(quantityInput);
@@ -202,6 +203,12 @@ function renderCart(products) {
     quantityInput.addEventListener("change", () => {
       // Get the new quantity from the input.
       const newQuantity = Number(quantityInput.value);
+
+      //Check that the quantity is valid
+      if (!quantityInput.checkValidity()) {
+        quantityInput.value = product.quantity;
+        return;
+      }
 
       // Get the current cart from sessionStorage.
       const cart = getCart();
