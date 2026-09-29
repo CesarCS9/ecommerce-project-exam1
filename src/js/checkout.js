@@ -97,16 +97,24 @@ googlePay.addEventListener("change", function () {
 checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  //Check the required fields
+  // Check the required fields
   if (!checkoutForm.checkValidity()) {
     return;
   }
 
-  // Save the completed order for the success page
+  // Get the current cart products
   const products = await fetchCartProducts();
+
+  // Check if the cart is still empty.
+  if (products.length === 0) {
+    window.location.href = "../cart/index.html";
+    return;
+  }
+
+  // Save the completed order for the success page
   sessionStorage.setItem("lastOrder", JSON.stringify(products));
 
-  //Reset the cart
+  // Reset the cart
   sessionStorage.removeItem("cart");
 
   window.location.href = "../success/index.html";
@@ -118,8 +126,16 @@ async function init() {
   //Fetch the products in the cart
   const products = await fetchCartProducts();
 
+  //Check if the cart is empty
+  if (products.length === 0) {
+    window.location.href = "../cart/index.html";
+    return;
+  }
+
   //Calculate and display the total
   renderTotal(products);
 }
 
-init();
+window.addEventListener("pageshow", () => {
+  init();
+});
