@@ -69,7 +69,15 @@ function renderProducts(products) {
     // Create the product price
     const productPrice = document.createElement("p");
     productPrice.classList.add("product-price");
-    productPrice.textContent = `${product.price} NOK`;
+
+    if (
+      product.discountedPrice !== undefined &&
+      product.discountedPrice < product.price
+    ) {
+      productPrice.textContent = `${product.discountedPrice} NOK`;
+    } else {
+      productPrice.textContent = `${product.price} NOK`;
+    }
 
     productImageContainer.appendChild(productPrice);
 
@@ -123,7 +131,19 @@ function renderCarouselProduct(product) {
   carouselImage.src = product.image.url;
   carouselImage.alt = product.image.alt;
   carouselTitle.textContent = product.title;
-  carouselBuyBtn.textContent = `Buy ${product.price} NOK`;
+  let productPrice;
+
+  if (
+    product.discountedPrice !== undefined &&
+    product.discountedPrice < product.price
+  ) {
+    productPrice = product.discountedPrice;
+  } else {
+    productPrice = product.price;
+  }
+
+  carouselBuyBtn.textContent = `Buy ${productPrice} NOK`;
+  
   carouselBuyBtn.href = `product/index.html?id=${product.id}`;
 }
 
