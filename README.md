@@ -1,4 +1,4 @@
-# STUFF – E-commerce Project Exam 1
+# STUFF.. Store
 
 A responsive e-commerce web application built as part of the Noroff Front-end Development Project Exam 1.
 
