@@ -1,123 +1,77 @@
 # STUFF – E-commerce Project Exam 1
 
-STUFF is a responsive e-commerce web application built as part of the Noroff Front-end Development Project Exam 1.
+A responsive e-commerce web application built as part of the Noroff Front-end Development Project Exam 1.
 
-The project allows users to browse products, view individual product details, register and log in, add products to a shopping cart, and complete a checkout flow.
+## Description
 
-## Live Demo
+STUFF is an online shop where users can browse products, view individual product details, create an account, log in, add products to a shopping cart and complete a checkout flow.
 
-[View the live website](https://cesarcs9.github.io/ecommerce-project-exam1/index.html)
+The application uses the Noroff Online Shop API to retrieve product and user data.
 
-## Design
+The website includes:
 
-[Figma Design](https://www.figma.com/design/uUvJnasnXZCBin0TJDElmD/Project-Exam-1?node-id=65-37&p=f)
-
-[Desktop Prototype](https://www.figma.com/proto/uUvJnasnXZCBin0TJDElmD/Project-Exam-1?node-id=29-3&t=r43hH0Dt0UKwAqpN-1&starting-point-node-id=29%3A3)
-
-[Mobile Prototype](https://www.figma.com/proto/uUvJnasnXZCBin0TJDElmD/Project-Exam-1?node-id=65-39&t=r43hH0Dt0UKwAqpN-1&starting-point-node-id=65%3A39)
-
-## Project Board
-
-[GitHub Project Board](https://github.com/users/CesarCS9/projects/5)
-
-## Features
-
-- Responsive e-commerce layout
 - Product carousel
 - Dynamic product feed
-- Product details page
+- Product details and related information
 - Product ratings, reviews and tags
 - Product sharing
 - User registration and login
 - Shopping cart
 - Quantity management
 - Checkout form
-- Order confirmation page
+- Order confirmation
 - Discounted product prices
-- Mobile navigation menu
-- Responsive design for mobile, tablet and desktop
+- Responsive mobile navigation
+- Responsive layouts for mobile, tablet and desktop
 
-## Technologies
+## Built With
 
 - HTML
 - CSS
-- JavaScript
+- Vanilla JavaScript
 - Fetch API
 - Figma
 - GitHub Pages
 
 No JavaScript frameworks or CSS frameworks were used.
 
-## API
+## Live Website
 
-The products are fetched from the Noroff Online Shop API:
+https://cesarcs9.github.io/ecommerce-project-exam1/index.html
 
-https://v2.api.noroff.dev/online-shop
+## GitHub Repository
 
-The project uses the API to retrieve product data such as:
+https://github.com/CesarCS9/ecommerce-project-exam1
 
-- Product name
-- Description
-- Price
-- Discounted price
-- Images
-- Rating
-- Reviews
-- Tags
+## Getting Started
 
-Authentication is handled through the Noroff API.
+### Installing
 
-## Pages
+Clone the repository:
 
-### Home / Product Feed
-Displays the hero section, product carousel and a list of the highest-rated products.
+```bash
+git clone https://github.com/CesarCS9/ecommerce-project-exam1.git
+```
 
-### Product Page
-Displays detailed information about a selected product, including price, discounted price, rating, reviews and tags.
+### Running
 
-### Login
-Allows existing users to log in using their Noroff account.
+This project does not require any dependencies or installation.
 
-### Register
-Allows new users to create an account.
+Open `index.html` in a browser to run the project locally.
 
-### Cart
-Displays selected products and allows users to update quantities or remove items.
+You can also visit the live website:
 
-### Checkout
-Contains the shipping and payment form and calculates the order total.
+https://cesarcs9.github.io/ecommerce-project-exam1/index.html
 
-### Success
-Displays the completed order and order summary.
+## Improvements
 
-### Terms & Conditions
-Contains the terms and conditions for the website.
+As part of Portfolio 1, the project was revisited and improved based on the original project.
 
-## Responsive Design
+### Cart Quantity Validation
 
-The website was designed using a mobile-first approach and adapted for larger screen sizes.
+Validation was added to the cart quantity input to prevent invalid values such as zero, negative numbers and decimals.
 
-## Accessibility
-
-Accessibility was considered throughout the project.
-
-### Testing
-
-The application was tested during development to verify:
-
-- Navigation between pages
-- Product fetching
-- Product links
-- Login and registration
-- Cart functionality
-- Quantity changes
-- Checkout flow
-- Discounted prices
-- Responsive layouts
-- Form validation
-- Empty states and error handling
-
-The deployed website was also tested in an incognito browser window.
+This improves the reliability of the shopping cart and provides clearer input validation for the user.
 
 ## AI Usage
 
@@ -125,7 +79,7 @@ AI tools were used during the project for brainstorming, explanations, debugging
 
 Details about AI usage are documented in:
 
-AI_LOG.md
+`AI_LOG.md`
 
 ## Credits
 
@@ -138,3 +92,5 @@ The poster images used for the video were captured from the same video.
 ## Author
 
 Cesar Castillo
+
+[GitHub](https://github.com/CesarCS9)
