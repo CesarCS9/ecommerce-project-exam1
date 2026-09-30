@@ -1,6 +1,9 @@
-"use-strict";
+"use strict";
 
 /* DOM */
+
+const successTitle = document.getElementById("success-title");
+const successMessage = document.getElementById("success-message");
 
 const orderItemImage = document.getElementById("order-item-image");
 const orderItemTitle = document.getElementById("order-item-title");
@@ -13,6 +16,8 @@ const orderTotal = document.getElementById("order-total");
 
 const orderPrevious = document.getElementById("order-previous");
 const orderNext = document.getElementById("order-next");
+
+const orderSummaryCard = document.querySelector(".order-summary-card");
 
 let currentIndex = 0;
 
@@ -102,5 +107,13 @@ orderPrevious.addEventListener("click", () => {
 
 const order = getOrder();
 
-renderOrder(order[currentIndex]);
-renderTotal();
+// Check if there is a completed order
+if (order.length === 0) {
+  successTitle.textContent = "No order found";
+  successMessage.textContent =
+    "There is no completed order to display. Please return to the shop.";
+  orderSummaryCard.style.display = "none";
+} else {
+  renderOrder(order[currentIndex]);
+  renderTotal();
+}
