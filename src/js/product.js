@@ -10,6 +10,9 @@ const productPrice = document.querySelector(".product-price");
 const productDescription = document.querySelector(".product-description");
 const productTags = document.querySelector(".product-tags");
 
+const productPage = document.querySelector(".product");
+const reviewsSection = document.querySelector(".reviews");
+
 const reviewsList = document.querySelector(".reviews-list");
 
 const addToCartButton = document.querySelector(".add-to-cart");
@@ -34,9 +37,15 @@ async function fetchProduct() {
     const response = await fetch(`${API_URL}/${productId}`);
     const data = await response.json();
 
+    if (!data.data) {
+      return null;
+    }
+
     return data.data;
+    
   } catch (error) {
     console.error("Failed to fetch product");
+    return null;
   }
 }
 
@@ -54,23 +63,21 @@ function renderProduct(product) {
   productPrice.textContent = "";
 
   if (
-  product.discountedPrice !== undefined &&
-  product.discountedPrice < product.price
-) {
-  const discountedPrice = document.createElement("span");
-  discountedPrice.classList.add("discounted-price");
-  discountedPrice.textContent = `${product.discountedPrice} NOK`;
+    product.discountedPrice !== undefined &&
+    product.discountedPrice < product.price
+  ) {
+    const discountedPrice = document.createElement("span");
+    discountedPrice.classList.add("discounted-price");
+    discountedPrice.textContent = `${product.discountedPrice} NOK`;
 
-  const originalPrice = document.createElement("span");
-  originalPrice.classList.add("original-price");
-  originalPrice.textContent = `${product.price} NOK`;
+    const originalPrice = document.createElement("span");
+    originalPrice.classList.add("original-price");
+    originalPrice.textContent = `${product.price} NOK`;
 
-  productPrice.append(discountedPrice, originalPrice);
-  
-} else {
-
-  productPrice.textContent = `${product.price} NOK`;
-}
+    productPrice.append(discountedPrice, originalPrice);
+  } else {
+    productPrice.textContent = `${product.price} NOK`;
+  }
 
   productDescription.textContent = product.description;
 
@@ -304,6 +311,18 @@ function checkIfInCart(product) {
 
 async function init() {
   const product = await fetchProduct();
+
+   // Show an error message if the product cannot be loaded.
+   if (!product) {
+    productPage.classList.add("error-state");
+    reviewsSection.classList.add("error-state");
+
+    productTitle.textContent = "Unable to load product.";
+    productDescription.textContent =
+      "We couldn't load this product. Please try again later.";
+
+    return;
+   }
 
   renderProduct(product);
 }

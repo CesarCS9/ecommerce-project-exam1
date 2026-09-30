@@ -4,6 +4,8 @@
 
 const productGrid = document.querySelector(".product-grid");
 
+const carousel = document.getElementById('carousel');
+
 const carouselImage = document.querySelector(".carousel-image");
 const carouselTitle = document.querySelector(".carousel-title");
 const carouselBuyBtn = document.querySelector(".carousel-buy-btn");
@@ -26,6 +28,7 @@ async function fetchProducts() {
     return data.data;
   } catch (error) {
     console.error("Failed to fetch products");
+    return null;
   }
 }
 
@@ -195,6 +198,18 @@ nextButton.addEventListener("click", showNextProduct);
 // Fetches products, selects carousel items and starts the carousel
 async function init() {
   const products = await fetchProducts();
+
+  // Show an error message if products cannot be loaded
+  if (!products) {
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('api-error-message');
+    errorMessage.textContent = 'Unable to load products. Please try again later.';
+
+    carousel.style.display = 'none';
+
+    productGrid.appendChild(errorMessage);
+    return;
+  }
 
   // Initialise carousel
   carouselProducts = [products[16], products[1], products[10]];
