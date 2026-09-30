@@ -42,7 +42,6 @@ async function fetchProduct() {
     }
 
     return data.data;
-    
   } catch (error) {
     console.error("Failed to fetch product");
     return null;
@@ -112,6 +111,12 @@ function renderProduct(product) {
     // If the button says Checkout, go to the checkout page.
     if (addToCartButton.textContent === "Checkout") {
       window.location.href = "../cart/index.html";
+      return;
+    }
+
+    // Check that the quantity is valid.
+    if (!quantityInput.checkValidity()) {
+      quantityInput.reportValidity();
       return;
     }
 
@@ -312,8 +317,8 @@ function checkIfInCart(product) {
 async function init() {
   const product = await fetchProduct();
 
-   // Show an error message if the product cannot be loaded.
-   if (!product) {
+  // Show an error message if the product cannot be loaded.
+  if (!product) {
     productPage.classList.add("error-state");
     reviewsSection.classList.add("error-state");
 
@@ -322,7 +327,7 @@ async function init() {
       "We couldn't load this product. Please try again later.";
 
     return;
-   }
+  }
 
   renderProduct(product);
 }
